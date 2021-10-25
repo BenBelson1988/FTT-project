@@ -1,0 +1,28 @@
+#mainh1 {
+  color: rgb(16, 31, 31);
+}
+
+#testdiv {
+  text-align: center;
+  width: 10vw;
+  height: 2vw;
+  background: rgb(202, 72, 12);
+  background: linear-gradient(
+    298deg,
+    rgba(202, 72, 12, 1) 0%,
+    rgba(50, 135, 32, 1) 37%,
+    rgba(22, 30, 66, 1) 100%
+  );
+  border-radius: 20px;
+  box-shadow: 0 0 1px 1px black;
+}
+
+#testbutton {
+  background-color: rgb(134, 193, 228);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#testbutton:hover {
+  background-color: chocolate;
+}
