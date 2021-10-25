@@ -1,0 +1,63 @@
+#mainh1 {
+  color: rgb(16, 31, 31);
+}
+
+#mainDiv {
+  display: flex;
+  flex-direction: row;
+  animation: transitionInAll 2s;
+}
+
+@keyframes transitionInAll {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#rightDiv {
+  width: 35%;
+  height: inherit;
+}
+
+#leftDiv {
+  width: 60%;
+  height: inherit;
+}
+
+#testbutton {
+  background-color: rgb(134, 193, 228);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#testbutton:hover {
+  background-color: chocolate;
+}
+
+#mainPic {
+  height: 100%;
+}
+
+hr.solid {
+  border: 1px solid rgb(0, 0, 0);
+  width: 15vw;
+  margin-bottom: 40px;
+}
+
+input {
+  width: 100%;
+  line-height: 30px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  border: 1px;
+}
