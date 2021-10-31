@@ -24,10 +24,28 @@
         <h3>Welcome to</h3>
         <h1 id="mainh1">FTTell</h1>
         <hr class="solid" />
-        <form>
-          <input type="text" placeholder="Please enter email" />
-          <input type="password" placeholder="Please enter password" />
-        </form>
+        <div class="wrapper">
+          <div class="buttonWrapper">
+            <button id="button-1" class="tab-button active" data-id="tab1">
+              Doctor Log-in
+            </button>
+            <button class="tab-button" data-id="tab2">Parents Log-in</button>
+          </div>
+          <div class="contentWrapper">
+            <div class="content active" id="tab1">
+              <form>
+                <input type="text" placeholder="Please enter license number" />
+                <input type="password" placeholder="Please enter password" />
+              </form>
+            </div>
+            <div class="content" id="tab2">
+              <form>
+                <input type="text" placeholder="Please enter ID" />
+                <input type="password" placeholder="Please enter password" />
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="flexColumn" id="rightDiv">
         <img
