@@ -42,21 +42,27 @@
                   type="text"
                   placeholder="Please enter license number"
                   id="license"
+                  oninput="onInputHandler('licenseError')"
                 />
+                <p id="licenseError" class="error"></p>
                 <input
                   type="password"
                   placeholder="Please enter password"
                   id="doctorPassword"
+                  oninput="onInputHandler('doctorPasswordError')"
                 />
+                <p id="doctorPasswordError" class="error"></p>
                 <button onclick="doctorLogIn(event)" class="button white">
                   Log In ✔
                 </button>
               </form>
             </div>
             <div class="content" id="tab2">
-              <form>
+              <form id="parentsForm">
                 <input type="text" placeholder="Please enter ID" />
+                <p id="idError" class="error"></p>
                 <input type="password" placeholder="Please enter password" />
+                <p id="parentPasswordError" class="error"></p>
                 <button class="button white">Log In ✔</button>
               </form>
             </div>

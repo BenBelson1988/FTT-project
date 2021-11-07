@@ -83,3 +83,8 @@ input {
   border-radius: 20px;
   border: 1px;
 }
+
+.error {
+  color: red;
+  font-size: 14px;
+}
