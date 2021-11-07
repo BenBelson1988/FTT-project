@@ -19,3 +19,18 @@ tabs.onclick = (e) => {
     element.classList.add("active");
   }
 };
+
+const doctorLogIn = (e) => {
+  e.preventDefault();
+  // window.open("ForgetPassword.html", "_self");
+  console.log(document.getElementById("doctorForm").elements[0].value);
+  console.log(document.getElementById("doctorForm").elements[1].value);
+
+  fetch("../JSON/login.json")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
+};

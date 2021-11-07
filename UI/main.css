@@ -14,7 +14,16 @@ html {
 }
 
 body {
-  animation: transitionInAll 2s;
+  animation: slide-in 1s forwards, transitionInAll 2s;
+  position: absolute;
+  transform: translateY(20%);
+  -webkit-transform: translateY(20%);
+}
+
+@keyframes slide-in {
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 @keyframes transitionInAll {

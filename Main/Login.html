@@ -37,10 +37,20 @@
           </div>
           <div class="contentWrapper">
             <div class="content active" id="tab1">
-              <form>
-                <input type="text" placeholder="Please enter license number" />
-                <input type="password" placeholder="Please enter password" />
-                <button class="button white">Log In ✔</button>
+              <form id="doctorForm">
+                <input
+                  type="text"
+                  placeholder="Please enter license number"
+                  id="license"
+                />
+                <input
+                  type="password"
+                  placeholder="Please enter password"
+                  id="doctorPassword"
+                />
+                <button onclick="doctorLogIn(event)" class="button white">
+                  Log In ✔
+                </button>
               </form>
             </div>
             <div class="content" id="tab2">
@@ -51,7 +61,7 @@
               </form>
             </div>
           </div>
-          <a href="ForgetPassword.html">Forgat password?</a>
+          <a href="ForgetPassword.html">Forgot password?</a>
         </div>
       </div>
       <div class="flexColumn">
