@@ -38,9 +38,44 @@
         <div class='pageContent'> 
 
             <div id="leftDiv">
-                <h1> test</h1>
-                <h1> test</h1>
-                <h1> test</h1>
+                <div id="insideLeftDivHeader">
+                  <h3> Welcome to FTTell</h3>
+                   <hr color="black" style="width:100%;text-align:left;margin-left:0">
+                   <a id="LogOutButton" href="Login.html" ><b>Log out</b></a>
+                   <hr color="black" style="width:100%;">
+                </div><! –– end of header ––>
+               
+               
+               
+                <div id="enterId">
+                    <h4><b>continue treatment</b></h4>
+                    <input class="idText" type="text"   name="SearchIDText" value="Please enter patients id here">
+                    <button class="regularButton"  onclick="######"  ><b>Show details</b></button>
+                <hr>
+                </div>
+
+                <div id="addPatient">
+                    <h4><b>Add new patient</b></h4>
+                    <input class="idText" type="text"   name="addNewPatientIDText"  value="Enter new patient's ID here">
+                    <button class="regularButton" onclick="######"  ><b>Add patient</b></button>
+                </div>
+                <hr style="color: black;">
+                <div id="AddPatientList"> 
+                    <hr>
+                    <br>
+                    <label for="myfile" ><b>Upload patient list from file:</b></label>
+                    <br>
+                    <br>
+                    <input type="file" class="regularButton"  name="patientsList">
+                   
+                </div>
+                <br>
+              
+                <div id="fullPatientsList">
+                    <hr>
+                     <button class="regularButton" onclick="######"  ><b>See full patients list</b></button>
+                </div>
+               
             </div>
 
             <div id="rightDiv">

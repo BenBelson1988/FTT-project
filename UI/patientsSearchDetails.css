@@ -81,6 +81,7 @@ border-radius: 15px;
     display: flex;
     flex-direction: column;
     padding-left: 10px;
+    border-style: double;
 
 }
 #rightDiv{
@@ -88,6 +89,59 @@ border-radius: 15px;
     display: flex;
     flex-direction: column;
     padding-left: 10px;
+    border-style: double;
 
+
+}
+
+#insideLeftDivHeader{
+display: flex;
+flex-direction: column;
+text-align: center;
+
+
+}
+
+#LogOutButton{
+background-color: rgb(253, 151, 132);
+border-radius: 10px;
+width: 50%;
+text-align: center;
+text-decoration: none;
+margin-left: 23%;
+
+
+}
+
+#enterId{
+    border-radius: 5px;
+
+}
+.regularButton{
+border-radius: 10px;
+color: white;
+background-color: black;
+width: 45%;
+
+}
+#addPatient{
+    border-radius: 5px; 
+    
+}
+.idText{
+color:grey;
+border-radius: 5px;
+width: 45%;
+
+}
+
+#AddPatientList{
+
+flex-direction: column;
+text-align: center;
+}
+
+#fullPatientsList{
+text-align: center;
 
 }
