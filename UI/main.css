@@ -12,3 +12,65 @@ html {
   font-family: sans-serif;
   font-size: x-large;
 }
+
+body {
+  animation: transitionInAll 2s;
+}
+
+@keyframes transitionInAll {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.button {
+  margin-top: 15px;
+  border-radius: 30px;
+  width: 10vw;
+  height: 4vh;
+  font-size: 15px;
+  font-weight: bolder;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+  border: none;
+  text-align: center;
+  transition: ease-in-out 0.3s;
+}
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.white {
+  color: black;
+  background-color: white;
+}
+.white:hover {
+  background-color: #d5e3ff;
+}
+
+.black {
+  color: white;
+  background-color: black;
+}
+.black:hover {
+  background-color: rgb(90, 90, 90);
+}
+
+.peach {
+  color: rgb(0, 0, 73);
+  background-color: #faacac;
+}
+.peach:hover {
+  background-color: #ffe5e5;
+}
+
+input {
+  width: 100%;
+  line-height: 30px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  border: 1px;
+}
