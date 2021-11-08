@@ -1,0 +1,10 @@
+{
+  "doctors": [
+    {
+      "name": "El-dan Menachem",
+      "licenseNumber": "112233",
+      "password": "112233",
+      "patient": []
+    }
+  ]
+}

@@ -5,7 +5,6 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Patient details</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 
     <link
     rel="stylesheet"
@@ -38,57 +37,68 @@
         <div class='pageContent'> 
 
             <div id="leftDiv">
-                <div id="insideLeftDivHeader">
-                  <h3> Welcome to FTTell</h3>
-                   <hr color="black" style="width:100%;text-align:left;margin-left:0">
-                   <a id="LogOutButton" href="Login.html" ><b>Log out</b></a>
-                   <hr color="black" style="width:100%;">
-                </div><! –– end of header ––>
-               
-               
-               
-                <div id="enterId">
-                    <h4><b>continue treatment</b></h4>
-                    <input class="idText" type="text"   name="SearchIDText" value="Please enter patients id here">
-                    <button class="regularButton"  onclick="######"  ><b>Show details</b></button>
-                <hr>
+                  <h2 class="self-align"> Welcome to FTTell</h2>
+
+                <div>
+                    <h4>continue treatment</h4>
+                    <input class="input" id="exsistPatientID" type="text"  placeholder="Please enter patients id here">
+                    <button class="button black"  onclick="######"  >Show details</button>
+                <hr class="solid">
                 </div>
 
-                <div id="addPatient">
-                    <h4><b>Add new patient</b></h4>
-                    <input class="idText" type="text"   name="addNewPatientIDText"  value="Enter new patient's ID here">
-                    <button class="regularButton" onclick="######"  ><b>Add patient</b></button>
+                <div>
+                    <h4>Add new patient</h4>
+                    <input class="input" id="newPatientID" type="text"    placeholder="Enter new patient's ID here">
+                    <button class="button black" onclick="######"  >Add patient</button>
                 </div>
-                <hr style="color: black;">
+                <hr class="solid">
                 <div id="AddPatientList"> 
-                    <hr>
-                    <br>
-                    <label for="myfile" ><b>Upload patient list from file:</b></label>
-                    <br>
-                    <br>
-                    <input type="file" class="regularButton"  name="patientsList">
+                    <h4>Upload list of patients from list</h4>
+                    
+                    <input type="file" class="input"   name="patientsList">
                    
                 </div>
-                <br>
               
+<<<<<<< HEAD
                 <div id="fullPatientsList">
                     <hr>
                      <!-- <button class="regularButton" onclick="######"  ><b>See full patients list</b></button> -->
                      <button class="re" type="button"> <img width="30" src="/UI/681316_list_512x512.png" alt="list picture"  /><b>See full patients list</b></button>
                     </div>
                
+=======
+                
+                    <hr class="solid">
+                     <button id="fullPatientsListButton" class="button black" onclick="######"  >See full patients list</button>
+                
+
+>>>>>>> ecacb6754ac12c8bc90c09ceee106c5f8d1f2566
             </div>
 
             <div id="rightDiv">
-                <h1> test</h1><h1> test</h1><h1> test</h1>
+              <button id="logOutButton"  class="button peach" onclick="logout()"   >Log out ⮌</button>
+              <img class="emoji self-align" src="/UI/emoji-icon-lineart-07-14-objects-medical-first-aid-kit-72dpi-forPersonalUseOnly.png" >
+              <h3 class="self-align">Patient details</h3>
+              <h5 class="h5Details">Full Name</h5>
+             <div class="inputDiv">fullname</div>
+             <h5 class="h5Details">Age + Birth Date</h5>
+             <div class="inputDiv">Age + Birth Date</div>
+             <h5 class="h5Details">Medical Diagnosis</h5>
+             <div id="medicalDiagnosis" class="inputDiv">Medical Diagnosis</div>
+             <img id="pills" class="self-align" src="/UI/hiclipart.com.png">
+             <h5 class="h5Details">Medicines taken</h5>
+             <div id="medicinesTaken" class="inputDiv">medicinesTaken </div>
+              <div id="buttonsCont">
+                <button class="button black">Show full details</button>
+                <button class="button black">Edit details</button>
+              </div>
 
             </div>
 
         </div>
 
-    </div>
 
-
-    <script src="patientsSearchDetails.js" ></script>
-</body>
+  
+    <script src="patientsSearchDetails.js"></script>
+  </body>
 </html>
