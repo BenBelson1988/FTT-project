@@ -81,7 +81,7 @@ border-radius: 15px;
     display: flex;
     flex-direction: column;
     padding-left: 10px;
-    border-style: double;
+    
 
 }
 #rightDiv{
@@ -89,7 +89,7 @@ border-radius: 15px;
     display: flex;
     flex-direction: column;
     padding-left: 10px;
-    border-style: double;
+    
 
 
 }
@@ -133,6 +133,7 @@ color:grey;
 border-radius: 5px;
 width: 45%;
 
+
 }
 
 #AddPatientList{
@@ -142,6 +143,7 @@ text-align: center;
 }
 
 #fullPatientsList{
-text-align: center;
+text-align:center;
+border-radius: 10px;
 
 }
