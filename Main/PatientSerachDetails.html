@@ -37,91 +37,59 @@
         <div class='pageContent'> 
 
             <div id="leftDiv">
-                <div id="insideLeftDivHeader">
-                  <h3> Welcome to FTTell</h3>
-                   <hr color="black" style="width:100%;text-align:left;margin-left:0">
-                   <a id="LogOutButton" href="Login.html" ><b>Log out</b></a>
-                   <hr color="black" style="width:100%;">
-                </div><! –– end of header ––>
-               
-               
-               
-                <div id="enterId">
-                    <h4><b>continue treatment</b></h4>
-                    <input class="idText" type="text"   name="SearchIDText" value="Please enter patients id here">
-                    <button class="regularButton"  onclick="######"  ><b>Show details</b></button>
-                <hr>
+                  <h2 class="self-align"> Welcome to FTTell</h2>
+
+                <div>
+                    <h4>continue treatment</h4>
+                    <input class="input" id="exsistPatientID" type="text"  placeholder="Please enter patients id here">
+                    <button class="button black"  onclick="######"  >Show details</button>
+                <hr class="solid">
                 </div>
 
-                <div id="addPatient">
-                    <h4><b>Add new patient</b></h4>
-                    <input class="idText" type="text"   name="addNewPatientIDText"  value="Enter new patient's ID here">
-                    <button class="regularButton" onclick="######"  ><b>Add patient</b></button>
+                <div>
+                    <h4>Add new patient</h4>
+                    <input class="input" id="newPatientID" type="text"    placeholder="Enter new patient's ID here">
+                    <button class="button black" onclick="######"  >Add patient</button>
                 </div>
-                <hr style="color: black;">
+                <hr class="solid">
                 <div id="AddPatientList"> 
-                    <hr>
-                    <br>
-                    <label for="myfile" ><b>Upload patient list from file:</b></label>
-                    <br>
-                    <br>
-                    <input type="file" class="regularButton"  name="patientsList">
+                    <h4>Upload list of patients from list</h4>
+                    
+                    <input type="file" class="input"   name="patientsList">
                    
                 </div>
-                <br>
               
-                <div id="fullPatientsList">
-                    <hr>
-                     <button class="regularButton" onclick="######"  ><b>See full patients list</b></button>
-                </div>
-               
+                
+                    <hr class="solid">
+                     <button id="fullPatientsListButton" class="button black" onclick="######"  >See full patients list</button>
+                
+
             </div>
 
             <div id="rightDiv">
-                <h1> test</h1><h1> test</h1><h1> test</h1>
+              <button id="logOutButton"  class="button peach" onclick="logout()"   >Log out ⮌</button>
+              <img class="emoji self-align" src="/UI/emoji-icon-lineart-07-14-objects-medical-first-aid-kit-72dpi-forPersonalUseOnly.png" >
+              <h3 class="self-align">Patient details</h3>
+              <h5 class="h5Details">Full Name</h5>
+             <div class="inputDiv">fullname</div>
+             <h5 class="h5Details">Age + Birth Date</h5>
+             <div class="inputDiv">Age + Birth Date</div>
+             <h5 class="h5Details">Medical Diagnosis</h5>
+             <div id="medicalDiagnosis" class="inputDiv">Medical Diagnosis</div>
+             <img id="pills" class="self-align" src="/UI/hiclipart.com.png">
+             <h5 class="h5Details">Medicines taken</h5>
+             <div id="medicinesTaken" class="inputDiv">medicinesTaken </div>
+              <div id="buttonsCont">
+                <button class="button black">Show full details</button>
+                <button class="button black">Edit details</button>
+              </div>
 
             </div>
 
         </div>
 
 
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="../UI/patientsSearchDetails.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="../UI/main.css"
-    />
-  </head>
-  <body>
-    <div class="pageContainer">
-      <div class="header">
-        <a id="FTTellLink" href="Login.html"> FTTell</a>
-        <div class="dropdown">
-          <img
-            class="dropbtn"
-            src="./../UI/hamburger-button-computer-icons-menu-minimalist-menu-2bcc4c807e889ed721f4f6731146b41c.png"
-          />
-          <div class="dropdown-content">
-            <a href="Login.html">Home</a>
-            <a href="#">Messages</a>
-            <a href="#">About</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  
     <script src="patientsSearchDetails.js"></script>
   </body>
 </html>
