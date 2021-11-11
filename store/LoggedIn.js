@@ -1,1 +1,1 @@
-export const user = { name: "Ben" };
+export default { name: "", family: "" };

@@ -1,0 +1,21 @@
+.divContent {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+#pregnant-info {
+  border-left: 1px dashed;
+  border-right: 1px dashed;
+}
+
+#Illnes {
+  border-left: 1px dashed;
+}
+
+.details {
+  height: 2.5vh;
+  width: 100%;
+}
