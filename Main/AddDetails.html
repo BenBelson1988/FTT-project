@@ -40,10 +40,11 @@
           </div>
         </div>
       </div>
-
+            <h2 id="h2head" class="self-align">Please fill in chiled's details</h2>
       <div class="pageContent">
+          
         <div class="divContent" id="basic-info">
-          <h2 class="self-align">Basic Info</h2>
+          <h4 class="self-align">Basic Info</h4>
           <h5 class="h5Details">Full Name</h5>
           <input  class="input details" placeholder="Full Name"></input>
           <h5 class="h5Details">I.D</h5>
@@ -53,26 +54,41 @@
           <h5 class="h5Details">Father name</h5>
           <input  class="input details" placeholder="Father name"></input>
           <h5 class="h5Details">Birth Date</h5>
-          <input type="date"  class="input details" placeholder="Birth date"></input>
-          <h5 class="h5Details">Test</h5>
-          <input  class="input details"></input>
-          <h5 class="h5Details">Test</h5>
-          <input  class="input details"></input>
-          <h5 class="h5Details">Test</h5>
-          <input  class="input details"></input>
-          <h5 class="h5Details">Test</h5>
-          <input  class="input details"></input>
-          <h5 class="h5Details">Test</h5>
-          <input  class="input details"></input>
+          <input type="date"  class="input details" ></input>
+          
         </div>
-        <div class="divContent" id="Illnes">
-            <h2 class="self-align">Illness</h2>
+        <div class="divContent" id="Illness">
+            <h4 class="self-align">Illness</h4>
+            <div class="buttonsholder">
+            <button id="add-illness" class="button white self-align" onclick=addIlness()>Add illness +</button>
+            <button id="remove-illness" class="button white self-align" onclick=removeIlness()>Remove illness -</button>
+            </div>
+            <div id="illness-list"></div>
         </div>
         <div class="divContent" id="pregnant-info">
-          <h2 class="self-align">Weight Info</h2>
+          <h4 class="self-align">Weight Info</h4>
+          <h5 class="h5Details">Birth weight</h5>
+          <input  class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">Birth weight</h5>
+          <input  class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">Birth weight</h5>
+          <input  class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">Birth weight</h5>
+          <input  class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">Birth weight</h5>
+          <input  class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">Birth weight</h5>
+          <input  class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">Birth weight</h5>
+          <input  class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">Birth weight</h5>
+          <input  class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">Birth weight</h5>
+          <input  class="input details" placeholder="Please enter weight"></input>
         </div>
         <div class="divContent" id="medicine-info">
-          <h2 class="self-align">Medicine - Nutrition</h2>
+          <h4 class="self-align">Medicine - Nutrition</h4>
+          <button id="treatment" class="button black">Calculate Treatment</button>
         </div>
       </div>
     </div>
