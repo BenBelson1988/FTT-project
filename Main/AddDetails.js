@@ -1,4 +1,5 @@
 let illness = 0;
+
 function addIlness() {
   illness++;
   let h5 = document.createElement("h5");
@@ -16,9 +17,7 @@ function addIlness() {
 function removeIlness() {
   let ilnessList = document.getElementById("illness-list");
   if (!ilnessList.hasChildNodes()) return;
-  let divToDelete = document.getElementById("Ilness" + illness);
-  let h5ToDelete = document.getElementById("h5Ilness" + illness);
-  ilnessList.removeChild(divToDelete);
-  ilnessList.removeChild(h5ToDelete);
+  ilnessList.removeChild(document.getElementById("Ilness" + illness));
+  ilnessList.removeChild(document.getElementById("h5Ilness" + illness));
   illness--;
 }
