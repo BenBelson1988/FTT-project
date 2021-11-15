@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Patient details</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link
+    rel="stylesheet"
+    type="text/css"
+    media="screen"
+    href="../UI/patientsSearchDetails.css"
+  />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    media="screen"
+    href="../UI/main.css"
+  />
+</head>
+<body>
+    <div class='pageContainer'>
+
+        <div class='header'>
+            <a id=FTTellLink href="Login.html"> FTTell</a>
+            <div class="dropdown">
+                <img class="dropbtn" src="./../UI/hamburger-button-computer-icons-menu-minimalist-menu-2bcc4c807e889ed721f4f6731146b41c.png" >
+                <div class="dropdown-content">
+                  <a href="Login.html">Home</a>
+                  <a href="#">Messages</a>
+                  <a href="#">About</a>
+                </div>
+              </div>  
+        </div>
+
+        <div class='pageContent'> 
+
+            <div id="leftDiv" class="row">
+                  <h2 class="self-align "> Treatment suggestion for ####</h2>
+              <div id="basicDetails" class="column">
+                <h5 class="h5Details">Full Name</h5>
+                <input  id="exsistPatientID" class="input" type="text"  >
+               
+
+              </div>
+
+              <div id="illness" class="column">
+
+                
+              </div>
+
+              <div id="weightsByAge" class="column">
+
+                
+              </div>
+
+            </div>
+
+            <div id="rightDiv">
+              <button id="logOutButton"  class="button peach" onclick="goBackToHomepage()"   >Return ⮌</button>
+
+            </div>
+
+        </div>
+
+
+  
+    <script src="TreatmentSuggestion.js"></script>
+  </body>
+</html>
