@@ -1,6 +1,5 @@
-"use strict";
-localStorage.clear();
-const myStorage = window.localStorage;
+// localStorage.clear();
+// const myStorage = window.localStorage;
 
 const tabs = document.querySelector(".wrapper");
 const tabButton = document.querySelectorAll(".tab-button");
@@ -22,7 +21,7 @@ tabs.onclick = (e) => {
   }
 };
 
-const doctorLogIn = (e) => {
+doctorLogIn = (e) => {
   e.preventDefault();
 
   let licenseNumber = document.getElementById("doctorForm").elements[0].value;
@@ -55,8 +54,8 @@ const doctorLogIn = (e) => {
         }
         if (data.doctors[index].password === doctorPassword) {
           window.open("PatientSerachDetails.html", "_self");
-          localStorage.setItem("ActiveUser", data.doctors[index].name);
-          console.log(localStorage);
+          // localStorage.setItem("ActiveUser", data.doctors[index].name);
+          // console.log(localStorage);
         } else {
           document.getElementById("doctorPasswordError").innerHTML =
             "Wrong password, Please try again.";
@@ -65,6 +64,6 @@ const doctorLogIn = (e) => {
     });
 };
 
-const onInputHandler = (error) => {
+onInputHandler = (error) => {
   document.getElementById(error).innerHTML = "";
 };

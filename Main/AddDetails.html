@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Details</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../UI/main.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../UI/patientsSearchDetails.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../UI/AddDetails.css"
+    />
+  </head>
+  <body>
+    <div class="pageContainer">
+      <div  class="header">
+        <a id="FTTellLink" href="Login.html"> FTTell</a>
+        <div class="dropdown">
+          <img
+            class="dropbtn"
+            src="./../UI/hamburger-button-computer-icons-menu-minimalist-menu-2bcc4c807e889ed721f4f6731146b41c.png"
+          />
+          <div class="dropdown-content">
+            <a href="Login.html">Home</a>
+            <a href="#">Messages</a>
+            <a href="#">About</a>
+          </div>
+        </div>
+      </div>
+            <h2 id="h2head" class="self-align">Please fill in child's details</h2>
+            <button id="logOutButton1"  class="button peach" onclick="logout()"   >Log out ⮌</button>
+      <div class="pageContent">
+          
+        <div class="divContent" id="basic-info">
+          <h4 class="self-align">Basic Info</h4>
+          <h5 class="h5Details">Full Name</h5>
+          <input type="number"  class="input details" placeholder="Full Name"></input>
+          <h5 class="h5Details">I.D</h5>
+          <input type="text" class="input details" placeholder="I.D"></input>
+          <h5 class="h5Details">Mother name</h5>
+          <input type="text"  class="input details" placeholder="Mother name"></input>
+          <h5 class="h5Details">Mother's height</h5>
+          <input  type="number" step="0.01" class="input details" placeholder="Mother's height"></input>
+          <h5 class="h5Details">Father name</h5>
+          <input  type="text" class="input details" placeholder="Father name"></input>
+          <h5 class="h5Details">Father's height</h5>
+          <input type="number" step="0.01" class="input details" placeholder="Father's height"></input>
+          <h5 class="h5Details">Birth Date</h5>
+          <input type="date"  class="input details" ></input>
+          <h5 class="h5Details">Child's current height</h5>
+          <input type="number" step="0.01" class="input details" placeholder="Child's current height"></input>
+          
+        </div>
+        <div class="divContent" id="Illness">
+            <h4 class="self-align">Illness</h4>
+            <div class="buttonsholder">
+            <button id="add-illness" class="button white self-align" onclick=addIlness()>Add illness +</button>
+            <button id="remove-illness" class="button white self-align" onclick=removeIlness()>Remove illness -</button>
+            </div>
+            <div id="illness-list"></div>
+        </div>
+        <div class="divContent" id="pregnant-info">
+          <h4 class="self-align">Weight Info</h4>
+          <h5 class="h5Details">Birth weight</h5>
+          <input type="number"  class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">6-week-weight</h5>
+          <input type="number"  class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">12-week-weight</h5>
+          <input type="number" class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">18-week-weight</h5>
+          <input type="number" class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">24-week-weight</h5>
+          <input type="number" class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">36-week-weight</h5>
+          <input type="number" class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">48-week-weight</h5>
+          <input type="number" class="input details" placeholder="Please enter weight"></input>
+          <h5 class="h5Details">60-week-weight</h5>
+          <input type="number"  class="input details" placeholder="Please enter weight"></input>
+          <button id="treatment" class="button black">Calculate Treatment</button>
+        </div>
+          
+        </div>
+      </div>
+    </div>
+    <script src="AddDetails.js"></script>
+  </body>
+</html>
