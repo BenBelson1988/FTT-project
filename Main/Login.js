@@ -1,5 +1,4 @@
-// localStorage.clear();
-// const myStorage = window.localStorage;
+const myStorage = window.localStorage;
 
 const tabs = document.querySelector(".wrapper");
 const tabButton = document.querySelectorAll(".tab-button");
@@ -39,23 +38,41 @@ doctorLogIn = (e) => {
     return;
   }
 
-  fetch("../JSON/login.json")
+  fetch("https://fttell-default-rtdb.firebaseio.com/doctors.json")
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
-      console.log(data);
-      data.doctors.forEach((element, index) => {
+    .then(function (doctors) {
+      console.log(doctors);
+      doctors.forEach((element, index) => {
         if (licenseNumber === element.licenseNumber);
         else {
           document.getElementById("licenseError").innerHTML =
             "The entered license number doesn't exist.";
           return;
         }
-        if (data.doctors[index].password === doctorPassword) {
+        if (doctors[index].password === doctorPassword) {
+          let data = true;
+          fetch(
+            `https://fttell-default-rtdb.firebaseio.com/doctors/${index}/loggedIn.json`,
+            {
+              method: "PUT",
+              body: JSON.stringify(data),
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+          localStorage.setItem("loggedIn", licenseNumber);
           window.open("PatientSerachDetails.html", "_self");
-          // localStorage.setItem("ActiveUser", data.doctors[index].name);
-          // console.log(localStorage);
+          return;
         } else {
           document.getElementById("doctorPasswordError").innerHTML =
             "Wrong password, Please try again.";
