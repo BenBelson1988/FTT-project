@@ -1,5 +1,6 @@
 const myStorage = window.localStorage;
 
+//////Tabs JS
 const tabs = document.querySelector(".wrapper");
 const tabButton = document.querySelectorAll(".tab-button");
 const contents = document.querySelectorAll(".content");
@@ -19,7 +20,7 @@ tabs.onclick = (e) => {
     element.classList.add("active");
   }
 };
-
+//////////// end of tabs js
 doctorLogIn = (e) => {
   e.preventDefault();
 
@@ -65,10 +66,12 @@ doctorLogIn = (e) => {
           )
             .then((response) => response.json())
             .then((data) => {
+              debugger;
               console.log("Success:", data);
             })
             .catch((error) => {
               console.error("Error:", error);
+              return;
             });
           localStorage.setItem("loggedIn", licenseNumber);
           window.open("PatientSerachDetails.html", "_self");

@@ -4,6 +4,6 @@ document.getElementById("medicalDiagnosis").innerHTML =
 document.getElementById("medicinesTaken").innerHTML =
   "hdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkf";
 
-  function logOut(){
-    window.open("Login.html", "_self");
-  }
+function logOut() {
+  window.open("Login.html", "_self");
+}

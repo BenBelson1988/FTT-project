@@ -112,9 +112,7 @@ hr.solid {
 }
 
 #logOutButton {
-  position: absolute;
-  right: 10px;
-  top: 10px;
+  align-self: flex-end;
 }
 
 .input {
@@ -139,7 +137,7 @@ h4 {
 }
 
 .button {
-  margin-top: 0px ;
+  margin-top: 0px;
 }
 
 .emoji {

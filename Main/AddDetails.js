@@ -21,5 +21,3 @@ function removeIlness() {
   ilnessList.removeChild(document.getElementById("h5Ilness" + illness));
   illness--;
 }
-
-function logout() {}
