@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Patient details</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link
+    rel="stylesheet"
+    type="text/css"
+    media="screen"
+    href="../UI/patientsSearchDetails.css"
+  />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    media="screen"
+    href="../UI/main.css"
+  />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    media="screen"
+    href="../UI/TreatmentSuggestion.css"
+  />
+</head>
+<body>
+    <div class='pageContainer'>
+
+        <div class='header'>
+            <a id=FTTellLink href="Login.html"> FTTell</a>
+            <div class="dropdown">
+                <img class="dropbtn" src="./../UI/hamburger-button-computer-icons-menu-minimalist-menu-2bcc4c807e889ed721f4f6731146b41c.png" >
+                <div class="dropdown-content">
+                  <a href="Login.html">Home</a>
+                  <a href="#">Messages</a>
+                  <a href="#">About</a>
+                </div>
+              </div>  
+        </div>
+
+        <h2 id="h2head" class="self-align "> Treatment suggestion for ####</h2>
+        <button id="returnButton"  class="button peach" onclick="goBackToHomepage()"   >Return ⮌</button>
+        <div class="flex-row">
+        <div id="leftContent" class='pageContent'> 
+
+            <div class="divContent">
+                <h4 class="bottom_border self-align">Basic details</h4>
+                <h5 class="h5Details">Full Name</h5>
+                <div  id="exsistPatientName" class="smallInputDiv" type="text"  ></div>
+                <h5 class="h5Details">ID</h5>
+                <div  id="exsistID" class="smallInputDiv" type="text"  ></div>
+                <h5 class="h5Details">Mother name</h5>
+                <div  id="exsistIDMother" class="smallInputDiv" type="text"  ></div>
+                <h5 class="h5Details">Father name</h5>
+                <div  id="exsistIDFather" class="smallInputDiv" type="text"  ></div>
+                <h5 class="h5Details">Age</h5>
+                <div  id="IDAge" class="smallInputDiv" type="text"  ></div>
+                <h5 class="h5Details">Current percentile</h5>
+                <div  id="IDPercentile" class="smallInputDiv" type="text"  ></div>
+            </div>
+            <div id="illness" class="divContent">
+              <h4 class="bottom_border self-align">Medical history</h4>
+            </div>
+
+            <div class="divContent">
+              <h4 class="bottom_border self-align">Weight Info</h4>
+              <h5 class="h5Details">Birth weight</h5>
+              <div  id="BirthWeight" class="smallInputDiv" type="text"  ></div>
+              <h5 class="h5Details">6-week-weight</h5>
+              <div  id="6-week-weight" class="smallInputDiv" type="text"  ></div>
+              <h5 class="h5Details">12-week-weight</h5>
+              <div  id="12-week-weight" class="smallInputDiv" type="text"  ></div>
+              <h5 class="h5Details">18-week-weight</h5>
+              <div  id="18-week-weight" class="smallInputDiv" type="text"  ></div>
+              <h5 class="h5Details">24-week-weight</h5>
+              <div  id="24-week-weight" class="smallInputDiv" type="text"  ></div>
+              <h5 class="h5Details">36-week-weight</h5>
+              <div  id="36-week-weight" class="smallInputDiv" type="text"  ></div>
+              <h5 class="h5Details">48-week-weight</h5>
+              <div  id="48-week-weight" class="smallInputDiv" type="text"  ></div>
+              <h5 class="h5Details">60-week-weight</h5>
+              <div  id="60-week-weight" class="smallInputDiv" type="text"  ></div>
+          </div>
+
+        </div>
+
+        
+        <div id="rightContent" class='pageContent'>
+         <div class="divContent">
+          <h4 class="bottom_border self-align">Treatment suggestion</h4>
+          <h5 id="doseHeadline" class="h5Details self-align">🧪Medicine dosage</h5>
+          <div class="constTextArea" id="medicineList">
+
+          </div>
+          <h5  class="h5Details self-align">🍔Nurition Recommendation</h5>
+          <div class="constTextArea" id="nutritionRecommendation">
+        
+
+        </div>
+        <h5  class="h5Details self-align">🧠Psychotherpy</h5>
+        <div class="constTextArea" id="PsychotherpyRecommendation" >
+        </div>
+        
+
+        
+      </div>
+  
+    <script src="TreatmentSuggestion.js"></script>
+  </body>
+</html>

@@ -10,7 +10,7 @@
   width: 100%;
   background-color: white;
   height: 60px;
-  border-radius: 30px; /*circle edges*/
+  border-radius: 30px;
   box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
 }
 
@@ -21,7 +21,7 @@
   left: 3%;
   top: 25%;
   font-weight: bold;
-  /*hover animation*/
+
   transition: ease-in-out 0.3s;
 }
 #FTTellLink:hover {
@@ -126,6 +126,7 @@ hr.solid {
   width: 200px;
   align-self: center;
   justify-self: center;
+  margin-top: 40px;
 }
 
 h4 {
@@ -138,7 +139,7 @@ h4 {
 }
 
 .button {
-  margin-top: 0px !important;
+  margin-top: 0px ;
 }
 
 .emoji {
