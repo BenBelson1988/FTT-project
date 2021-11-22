@@ -68,14 +68,16 @@ doctorLogIn = (e) => {
             .then((data) => {
               debugger;
               console.log("Success:", data);
+              myStorage.setItem("loggedIn", licenseNumber);
+            myStorage.setItem("index", index);
+          window.open("PatientSerachDetails.html", "_self");
+          return;
             })
             .catch((error) => {
               console.error("Error:", error);
               return;
             });
-          localStorage.setItem("loggedIn", licenseNumber);
-          window.open("PatientSerachDetails.html", "_self");
-          return;
+            
         } else {
           document.getElementById("doctorPasswordError").innerHTML =
             "Wrong password, Please try again.";
