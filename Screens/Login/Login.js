@@ -1,4 +1,7 @@
 const myStorage = window.localStorage;
+let licenseNumber = myStorage.getItem("loggedIn");
+if (licenseNumber)
+  window.open("../Patients Search Details/PatientSerachDetails.html", "_self");
 
 //////Tabs JS
 const tabs = document.querySelector(".wrapper");
@@ -69,7 +72,10 @@ doctorLogIn = (e) => {
               console.log("Success:", data);
               myStorage.setItem("loggedIn", licenseNumber);
               myStorage.setItem("index", index);
-              window.open("PatientSerachDetails.html", "_self");
+              window.open(
+                "../Patients Search Details/PatientSerachDetails.html",
+                "_self"
+              );
               return;
             })
             .catch((error) => {

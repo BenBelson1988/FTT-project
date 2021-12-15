@@ -1,6 +1,6 @@
-let licenseNumber = window.localStorage.getItem("loggedIn")
- if(!licenseNumber) window.open("Login.html","_self")
- let index= window.localStorage.getItem("index")
+let licenseNumber = window.localStorage.getItem("loggedIn");
+if (!licenseNumber) window.open("../Login/Login.html", "_self");
+let index = window.localStorage.getItem("index");
 
 document.getElementById("medicalDiagnosis").innerHTML =
   "hdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkf";
@@ -8,9 +8,8 @@ document.getElementById("medicalDiagnosis").innerHTML =
 document.getElementById("medicinesTaken").innerHTML =
   "hdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkf";
 
-
 function logOut() {
-  let data=false;
+  let data = false;
   fetch(
     `https://fttell-default-rtdb.firebaseio.com/doctors/${index}/loggedIn.json`,
     {
@@ -20,8 +19,7 @@ function logOut() {
         "Content-type": "application/json; charset=UTF-8",
       },
     }
-  ).then( ()=>{window.localStorage.clear(),
-  window.open("Login.html", "_self")});
-
-
+  ).then(() => {
+    window.localStorage.clear(), window.open("../Login/Login.html", "_self");
+  });
 }
