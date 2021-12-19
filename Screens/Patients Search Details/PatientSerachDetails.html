@@ -41,15 +41,18 @@
 
                 <div>
                     <h4>Continue treatment</h4>
-                    <input class="input" id="exsistPatientID" type="text"  placeholder="Please enter patients id here">
-                    <button class="button black"  onclick="######"  >Show details</button>
+                    <input class="input" id="exsistPatientID" type="number"  placeholder="Please enter patients id here" oninput="onChangeHandler('exsistPatientID')">
+                    <button 
+                    id="searchPatientButton" class="button black"   onclick="searchAddPatient('exsistPatientID')"  >Show details</button>
+                    <p class="error" id="exsistPatientIDError"></p>
                 <hr class="solid">
                 </div>
 
                 <div>
                     <h4>Add new patient</h4>
-                    <input class="input" id="newPatientID" type="text"    placeholder="Enter new patient's ID here">
-                    <button class="button black" onclick="######"  >Add patient</button>
+                    <input class="input" id="newPatientID" type="text"    placeholder="Enter new patient's ID here" oninput="onChangeHandler('newPatientID')">
+                    <button class="button black" onclick="searchAddPatient('newPatientID')"  >Add patient</button>
+                    <p class="error" id="newPatientIDError"></p>
                 </div>
                 <hr class="solid">
                 <div id="AddPatientList"> 

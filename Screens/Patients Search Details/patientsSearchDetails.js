@@ -2,11 +2,21 @@ let licenseNumber = window.localStorage.getItem("loggedIn");
 if (!licenseNumber) window.open("../Login/Login.html", "_self");
 let index = window.localStorage.getItem("index");
 
-document.getElementById("medicalDiagnosis").innerHTML =
-  "hdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkf";
+function searchAddPatient(type) {
+  let searchError = document.getElementById(type + "Error");
+  let searchInput = document.getElementById(type).value;
+  if (searchInput === "" || searchInput.length !== 9) {
+    searchError.innerText = "Please enter a valid ID (9 digits long).";
+    return;
+  } else searchError.innerText = "";
+  type === "exsistPatientID"
+    ? console.log("get exsistPatientID from data")
+    : console.log("add new patientID");
+}
 
-document.getElementById("medicinesTaken").innerHTML =
-  "hdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhdskfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkhsdjkfhsdjkhsdjkfhsdjkfhsdjkfhsdjkfhsdjkf";
+function onChangeHandler(type) {
+  document.getElementById(type + "Error").innerText = "";
+}
 
 function logOut() {
   let data = false;

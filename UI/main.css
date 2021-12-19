@@ -89,10 +89,11 @@ input {
 }
 
 .error {
+  margin: 0;
+  font-size: 10px;
   color: red;
-  font-size: 14px;
 }
 
-.display-none{
+.display-none {
   display: none;
 }
