@@ -40,7 +40,7 @@ h4 {
 #remove-illness {
   font-size: 13px;
   margin: 10px;
-  width: 130px;
+  width: 8vw;
 }
 
 .input-illness {
@@ -68,4 +68,10 @@ h4 {
   position: absolute;
   top: 100px;
   right: 0;
+}
+
+.error {
+  margin: 0;
+  font-size: 10px;
+  color: red;
 }
