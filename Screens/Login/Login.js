@@ -41,12 +41,14 @@ doctorLogIn = (e) => {
       "Please fill password.";
     return;
   }
+  document.getElementById("loader").classList.remove("display-none");
 
   fetch("https://fttell-default-rtdb.firebaseio.com/doctors.json")
     .then(function (response) {
       return response.json();
     })
     .then(function (doctors) {
+      document.getElementById("loader").classList.add("display-none");
       console.log(doctors);
       doctors.forEach((element, index) => {
         if (licenseNumber === element.licenseNumber);
@@ -80,6 +82,7 @@ doctorLogIn = (e) => {
             })
             .catch((error) => {
               console.error("Error:", error);
+              document.getElementById("loader").classList.add("display-none");
               return;
             });
         } else {

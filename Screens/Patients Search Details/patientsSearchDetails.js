@@ -18,6 +18,24 @@ function onChangeHandler(type) {
   document.getElementById(type + "Error").innerText = "";
 }
 
+function openFullList() {
+  document.getElementById("loader").classList.remove("display-none");
+
+  fetch(
+    `https://fttell-default-rtdb.firebaseio.com/doctors/${index}/patientsList.json`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (patients) {
+      document.getElementById("loader").classList.add("display-none");
+      if (!patients)
+        document.getElementById("listError").innerHTML =
+          "There are current no patients under care.";
+      else window.open("../Full Patients List/FullPatientsList.html", "_self");
+    });
+}
+
 function logOut() {
   let data = false;
   fetch(

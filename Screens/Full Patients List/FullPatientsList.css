@@ -1,0 +1,120 @@
+.pageContainer-full-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+  padding-top: 20px;
+}
+
+#btn-go-back {
+  align-self: flex-end;
+  margin: 1vw;
+}
+
+#list-header {
+  width: 60vw;
+}
+
+#listH2 {
+  margin: 0;
+  margin-bottom: 1vh;
+}
+
+hr.width50 {
+  width: 40%;
+}
+
+.colors-container {
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.marker {
+  width: 15vw;
+  text-align: center;
+  border-radius: 30px;
+  height: 4vh;
+  line-height: 4vh;
+  font-weight: bold;
+  font-size: 1vw;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+  transition: 0.5s;
+}
+.marker:hover {
+  transform: translateY(-10px);
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.list-container {
+  margin-top: 5px;
+  margin-bottom: 2vh;
+  display: flex;
+  background-color: white;
+  height: 60vh;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+}
+
+.list-headings {
+  margin-top: 2vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  font-weight: 600;
+}
+
+.flex1 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex2 {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexDiv {
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.flexDiv > div:not(:last-child) {
+  border-right: 1px dashed;
+}
+.flexDiv > div {
+  border-bottom: 1px dashed;
+}
+.green-background {
+  background-color: green;
+}
+
+.yellow-background {
+  background-color: yellow;
+}
+
+.red-background {
+  background-color: red;
+}

@@ -21,6 +21,7 @@
 </head>
 <body>
     <div class='pageContainer'>
+      <img class="loader display-none" id="loader" src="../../UI//Loader/Loader.svg" />
 
         <div class='header'>
             <a id=FTTellLink href="../Login/Login.html"> FTTell</a>
@@ -57,16 +58,13 @@
                 <hr class="solid">
                 <div id="AddPatientList"> 
                     <h4>Upload list of patients from file</h4>
-                    
-                    <input type="file" class="input"   name="patientsList">
-                   
+                    <input type="file" class="input" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"   name="patientsList">
                 </div>
               
-                
                     <hr class="solid">
-                     <button id="fullPatientsListButton" class="button black" onclick="######"  >See full patients list</button>
-                
-
+                     <button id="fullPatientsListButton" class="button black" onclick="openFullList()"  >See full patients list</button>
+                     <p class="error self-align" id="listError"></p>
+              
             </div>
 
             <div id="rightDiv">

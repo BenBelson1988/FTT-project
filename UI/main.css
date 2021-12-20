@@ -97,3 +97,9 @@ input {
 .display-none {
   display: none;
 }
+
+.loader {
+  position: fixed;
+  top: 40%;
+  right: 40%;
+}
