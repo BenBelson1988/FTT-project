@@ -12,7 +12,7 @@ let patientsDetails = {
 function goBack() {
   history.back() ||
     window.open(
-      "../Patients Search Details/PatientSerachDetails.html",
+      "../Patients Search Details/PatientSearchDetails.html",
       "_self"
     );
 }

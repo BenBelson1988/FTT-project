@@ -74,6 +74,7 @@ doctorLogIn = (e) => {
               console.log("Success:", data);
               myStorage.setItem("loggedIn", licenseNumber);
               myStorage.setItem("index", index);
+              myStorage.setItem("name", element.name);
               window.open(
                 "../Patients Search Details/PatientSearchDetails.html",
                 "_self"

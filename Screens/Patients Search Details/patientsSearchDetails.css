@@ -159,7 +159,7 @@ h4 {
   color: rgba(0, 0, 0, 0.671);
   font-size: 15px;
   line-height: 25px;
-  width: 500px;
+  width: 100%;
   min-height: 25px;
   max-height: 150px;
   border-radius: 30px;
@@ -186,4 +186,42 @@ h3 {
   align-items: flex-end;
   height: 15vh;
   margin-bottom: 20px;
+}
+
+.patients-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.medicine-item {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 25px;
+  width: 95%;
+  min-height: 25px;
+  max-height: 150px;
+  border-radius: 30px;
+  border: none;
+  margin-top: 10px;
+  padding-left: 5px;
+  overflow: auto;
+  overflow-wrap: break-word;
+  background-color: #0000001c;
+}
+
+#medicinesTaken {
+  max-height: 150px;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+}
+
+#welcome {
+  margin: 0;
+  margin-top: 15px;
 }

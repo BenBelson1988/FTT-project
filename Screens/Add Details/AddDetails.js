@@ -3,6 +3,10 @@ let licenseNumber = window.localStorage.getItem("loggedIn");
 if (!licenseNumber) window.open("../Login/Login.html", "_self");
 let index = window.localStorage.getItem("index");
 
+document.getElementById("id").value = parseInt(
+  window.location.search.substring(window.location.search.length - 9)
+);
+
 //Form Object
 var formObject = {
   fullName: "",
@@ -179,6 +183,10 @@ function inputValidation(inputValue, type) {
           document.getElementById(inputValue).value)
       : (formObject[inputValue] = document.getElementById(inputValue).value);
   return true;
+}
+
+function goBack() {
+  history.back();
 }
 
 //logout user from DB

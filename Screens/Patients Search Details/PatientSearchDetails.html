@@ -34,11 +34,15 @@
                 </div>
               </div>  
         </div>
+        <div class="flexRow">
+          <h3 class="self-align" id="welcome" > Welcome to FTTell</h3>
           <button id="logOutButton"  class="button peach" onclick="logOut()"   >Log out ⮌</button>
+          
+        </div>
         <div class='pageContent'> 
 
             <div id="leftDiv">
-                  <h2 class="self-align"> Welcome to FTTell</h2>
+                  
 
                 <div>
                     <h4>Continue treatment</h4>
@@ -68,18 +72,18 @@
             </div>
 
             <div id="rightDiv">
-              <div class="display-none">
+              <div id="patients-details-div" class="display-none">
               <img class="emoji self-align" src="/UI/Pictures/emoji-icon-lineart-07-14-objects-medical-first-aid-kit-72dpi-forPersonalUseOnly.png" >
               <h3 class="self-align">Patient details</h3>
               <h5 class="h5Details">Full Name</h5>
-             <div class="inputDiv">fullname</div>
-             <h5 class="h5Details">Age + Birth Date</h5>
-             <div class="inputDiv">Age + Birth Date</div>
+             <div id="patientFullName" class="inputDiv"></div>
+             <h5 class="h5Details">Age</h5>
+             <div id="patientAge" class="inputDiv"></div>
              <h5 class="h5Details">Medical Diagnosis</h5>
-             <div id="medicalDiagnosis" class="inputDiv">Medical Diagnosis</div>
+             <div id="medicalDiagnosis" class="inputDiv"></div>
              <img id="pills" class="self-align" src="/UI/Pictures/hiclipart.com.png">
              <h5 class="h5Details">Medicines taken</h5>
-             <div id="medicinesTaken" class="inputDiv">medicinesTaken </div>
+             <div id="medicinesTaken" > </div>
               <div id="buttonsCont">
                 <button class="button black">Show full details</button>
                 <button class="button black">Edit details</button>
