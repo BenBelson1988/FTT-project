@@ -6,6 +6,7 @@ let index = window.localStorage.getItem("index");
 document.getElementById("id").value = parseInt(
   window.location.search.substring(window.location.search.length - 9)
 );
+if (!document.getElementById("id").value) goBack();
 
 //Form Object
 var formObject = {
@@ -186,7 +187,11 @@ function inputValidation(inputValue, type) {
 }
 
 function goBack() {
-  history.back();
+  history.back() ||
+    window.open(
+      "../Patients Search Details/PatientSearchDetails.html",
+      "_self"
+    );
 }
 
 //logout user from DB

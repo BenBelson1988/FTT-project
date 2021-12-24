@@ -91,9 +91,9 @@ async function fecthPatients() {
   const response = await fetch(
     `https://fttell-default-rtdb.firebaseio.com/patients.json`
   );
-  const patiesnts = await response.json();
+  const patients = await response.json();
   document.getElementById("loader").classList.add("display-none");
-  return patiesnts;
+  return patients;
 }
 
 function logOut() {

@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,7 +27,12 @@
     />
   </head>
   <body>
-    <div class="pageContainer-full-list">
+    <div id="pageContainer-list" class="pageContainer-full-list">
+      <img
+        class="loader display-none"
+        id="loader"
+        src="../../UI//Loader/Loader.svg"
+      />
       <div class="header" id="list-header">
         <a id="FTTellLink" href="../Login/Login.html"> FTTell</a>
         <div class="dropdown">
@@ -60,6 +67,14 @@
         <div class="flex2">Treatment progress</div>
       </div>
       <div class="list-container" id="listContainer"></div>
+      <div id="overlay" class="display-none">
+        <div id="ftt-chart" class="fixed display-none">
+          <button id="xButton" class="button black" onclick="closeChart()">
+            X
+          </button>
+          <canvas id="myChart" width="5vw" height="5vh"></canvas>
+        </div>
+      </div>
     </div>
   </body>
   <script src="FullPatientsList.js"></script>

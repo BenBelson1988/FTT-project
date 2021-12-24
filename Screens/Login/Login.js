@@ -50,17 +50,17 @@ doctorLogIn = (e) => {
     .then(function (doctors) {
       document.getElementById("loader").classList.add("display-none");
       console.log(doctors);
-      doctors.forEach((element, index) => {
-        if (licenseNumber === element.licenseNumber);
-        else {
-          document.getElementById("licenseError").innerHTML =
-            "The entered license number doesn't exist.";
-          return;
-        }
-        if (doctors[index].password === doctorPassword) {
+      for (let i = 0; i < doctors.length; i++) {
+        if (licenseNumber !== doctors[i].licenseNumber) {
+          if (i === doctors.length - 1) {
+            document.getElementById("licenseError").innerHTML =
+              "The entered license number doesn't exist.";
+            return;
+          }
+        } else if (doctors[i].password === doctorPassword) {
           let data = true;
           fetch(
-            `https://fttell-default-rtdb.firebaseio.com/doctors/${index}/loggedIn.json`,
+            `https://fttell-default-rtdb.firebaseio.com/doctors/${i}/loggedIn.json`,
             {
               method: "PUT",
               body: JSON.stringify(data),
@@ -73,24 +73,24 @@ doctorLogIn = (e) => {
             .then((data) => {
               console.log("Success:", data);
               myStorage.setItem("loggedIn", licenseNumber);
-              myStorage.setItem("index", index);
-              myStorage.setItem("name", element.name);
+              myStorage.setItem("index", i);
+              myStorage.setItem("name", doctors[i].name);
+              i = doctors.length - 1;
               window.open(
                 "../Patients Search Details/PatientSearchDetails.html",
                 "_self"
               );
-              return;
             })
             .catch((error) => {
               console.error("Error:", error);
               document.getElementById("loader").classList.add("display-none");
               return;
             });
-        } else {
+        } else if (i === doctors.length - 1) {
           document.getElementById("doctorPasswordError").innerHTML =
             "Wrong password, Please try again.";
         }
-      });
+      }
     });
 };
 
