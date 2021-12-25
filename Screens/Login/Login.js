@@ -21,9 +21,10 @@ tabs.onclick = (e) => {
     });
     const element = document.getElementById(id);
     element.id === "tab2"
-      ? (document.getElementById("mainPic").src = "/UI/Pictures/family.png")
+      ? (document.getElementById("mainPic").src =
+          "../../UI/Pictures/family.png")
       : (document.getElementById("mainPic").src =
-          "/UI/Pictures/physician-doctor-of-medicine-clinic-pharmacy-others-c49e23a871d01835de3d82e5011fca23.png");
+          "../../UI/Pictures/physician-doctor-of-medicine-clinic-pharmacy-others-c49e23a871d01835de3d82e5011fca23.png");
     element.classList.add("active");
   }
 };
