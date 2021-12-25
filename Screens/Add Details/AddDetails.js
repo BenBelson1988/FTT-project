@@ -67,14 +67,14 @@ function addIlness() {
   comboBox.setAttribute("id", "illness" + illness);
   comboBox.setAttribute("class", "input-illness");
   comboBox.onchange = function () {
-    onComboBoxChange(comboBox.id.charAt(comboBox.id.length - 1));
+    onComboBoxChange(comboBox.id.charAt(comboBox.id.length - 1)); // id="illness1"  --> 1
   };
 
   let defaultOption = document.createElement("option");
   defaultOption.innerText = "Please select illness";
-  defaultOption.disabled = true;
-  defaultOption.selected = true;
-  defaultOption.hidden = true;
+  defaultOption.disabled = true;//not possible to selec the default message
+  defaultOption.selected = true;//the messsage is shown by default
+  defaultOption.hidden = true;//impossible to choose the default
   comboBox.appendChild(defaultOption);
   for (let i = 0; i < tempIlnesess.length; i++) {
     let option = document.createElement("option");
