@@ -118,3 +118,10 @@ function birthToAge(birthDay) {
   if (birthDay.substring(5, 7) - dateNow.getMonth() + 1 > 0) age--;
   return age;
 }
+
+function showFullDetails() {
+  window.open(
+    "../Patient Full Details/PatientFullDetails.html?name=" + tempPatientID,
+    "_self"
+  );
+}

@@ -20,6 +20,10 @@ tabs.onclick = (e) => {
       content.classList.remove("active");
     });
     const element = document.getElementById(id);
+    element.id === "tab2"
+      ? (document.getElementById("mainPic").src = "/UI/Pictures/family.png")
+      : (document.getElementById("mainPic").src =
+          "/UI/Pictures/physician-doctor-of-medicine-clinic-pharmacy-others-c49e23a871d01835de3d82e5011fca23.png");
     element.classList.add("active");
   }
 };
@@ -75,7 +79,7 @@ doctorLogIn = (e) => {
               myStorage.setItem("loggedIn", licenseNumber);
               myStorage.setItem("index", i);
               myStorage.setItem("name", doctors[i].name);
-              i = doctors.length - 1;
+              // i = doctors.length - 1;
               window.open(
                 "../Patients Search Details/PatientSearchDetails.html",
                 "_self"
@@ -86,6 +90,7 @@ doctorLogIn = (e) => {
               document.getElementById("loader").classList.add("display-none");
               return;
             });
+          break;
         } else if (i === doctors.length - 1) {
           document.getElementById("doctorPasswordError").innerHTML =
             "Wrong password, Please try again.";

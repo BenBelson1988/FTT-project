@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Patient details</title>
+    <title>Patient full details</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
     <link
@@ -22,16 +22,16 @@
     rel="stylesheet"
     type="text/css"
     media="screen"
-    href="TreatmentSuggestion.css"
+    href="PatientFullDetails.css"
   />
 </head>
 <body>
     <div class='pageContainer'>
-
+      <img class="loader display-none" id="loader" src="../../UI//Loader/Loader.svg" />
         <div class='header'>
             <a id=FTTellLink href="../Login/Login.html"> FTTell</a>
             <div class="dropdown">
-                <img class="dropbtn" src="../../UI/hamburger-button-computer-icons-menu-minimalist-menu-2bcc4c807e889ed721f4f6731146b41c.png" >
+                <img class="dropbtn" src="../../UI/Pictures/hamburger-button-computer-icons-menu-minimalist-menu-2bcc4c807e889ed721f4f6731146b41c.png" >
                 <div class="dropdown-content">
                   <a href="../Login/Login.html">Home</a>
                   <a href="#">Messages</a>
@@ -40,7 +40,7 @@
               </div>  
         </div>
 
-        <h2 id="h2head" class="self-align "> Treatment suggestion for ####</h2>
+        <h2 id="h2head" class="self-align "></h2>
         <button id="returnButton"  class="button peach" onclick="goBackToHomepage()"   >Return ⮌</button>
         <div class="flex-row">
         <div id="leftContent" class='pageContent'> 
@@ -107,6 +107,6 @@
         
       </div>
   
-    <script src="TreatmentSuggestion.js"></script>
+    <script src="PatientFullDetails.js"></script>
   </body>
 </html>
