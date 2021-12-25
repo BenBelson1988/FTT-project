@@ -117,6 +117,7 @@ hr.dashed {
 
 #logOutButton {
   align-self: flex-end;
+  width: 6vw;
 }
 
 .input {

@@ -7,7 +7,8 @@ function goBackToHomepage() {
 }
 
 let id = window.location.search.substring(window.location.search.length - 9);
-let patient = fecthPatients(id);
+let patient;
+fecthPatients(id);
 
 async function fecthPatients(id) {
   document.getElementById("loader").classList.remove("display-none");
@@ -22,5 +23,4 @@ async function fecthPatients(id) {
   console.log(patient);
   document.getElementById("h2head").innerHTML =
     patient.fullName + " Full details";
-  return patients;
 }
