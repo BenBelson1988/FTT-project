@@ -81,3 +81,9 @@ h4 {
 .constTextArea {
   height: 30%;
 }
+
+.h5Details-full {
+  margin: 0;
+  font-size: 1vw;
+  font-weight: 300;
+}
