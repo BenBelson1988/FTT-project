@@ -156,3 +156,19 @@ function closeChart() {
   document.getElementById("overlay").classList.add("display-none");
   document.getElementById("ftt-chart").classList.add("display-none");
 }
+
+function logOut() {
+  let data = false;
+  fetch(
+    `https://fttell-default-rtdb.firebaseio.com/doctors/${index}/loggedIn.json`,
+    {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }
+  ).then(() => {
+    window.localStorage.clear(), window.open("../Login/Login.html", "_self");
+  });
+}

@@ -1,7 +1,30 @@
 #returnButton {
   position: absolute;
-  top: 80px;
-  right: 0;
+  top: 90px;
+  right: 27vw;
+  width: 6vw;
+}
+
+#pageContainer-fulldetails {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 60vw;
+}
+
+html {
+  overflow: auto;
+}
+
+body {
+  overflow: visible;
+  height: fit-content;
+}
+
+#logOutButton {
+  position: absolute;
+  top: 90px;
+  right: 20vw;
   width: 6vw;
 }
 
@@ -14,17 +37,26 @@
   flex: 2;
 }
 
-#rightContent {
+#treatmentContent {
+  margin-top: 2vh;
+  width: 30vw;
+  height: 24vw;
+}
+
+.flex-column {
   flex: 1;
-  margin-left: 3%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 .flex-row {
-  flex: 1;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: 100%;
+  justify-content: space-between;
 }
 
 .divContent {
@@ -34,17 +66,25 @@
   align-items: stretch;
   padding-left: 5px;
   padding-right: 15px;
-  padding-top: 10px;
+  padding-bottom: 15px;
 }
 
-#illness {
+#medicalHistory {
   border-right: dashed rgba(0, 0, 0, 0.328);
   border-left: dashed rgba(0, 0, 0, 0.328);
+  text-align: center;
 }
 
 .details {
   height: 2.5vh;
   width: 100%;
+}
+
+.illnessesList {
+  font-weight: bold;
+  font-size: 2vmin;
+  margin-top: 0;
+  margin-bottom: 2vh;
 }
 
 .smallInputDiv {
@@ -86,4 +126,14 @@ h4 {
   margin: 0;
   font-size: 1vw;
   font-weight: 300;
+}
+
+#lastP {
+  animation-fill-mode: both;
+}
+
+#ftt-chart {
+  width: 40%;
+  align-self: center;
+  background-color: rgb(255, 255, 255);
 }

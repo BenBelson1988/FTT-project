@@ -43,21 +43,26 @@
           <div class="dropdown-content">
             <a href="../Login/Login.html">Home</a>
             <a href="#">Messages</a>
-            <a href="#">About</a>
+            <a href="../About/About.html">About</a>
           </div>
         </div>
       </div>
-      <button id="btn-go-back" class="button peach" onclick="goBack()">
-        Go back ⮌
-      </button>
+      <div class="flex-row-end">
+        <button id="btn-go-back" class="button peach" onclick="goBack()">
+          Go back ⮌
+        </button>
+        <button id="logOutButton" class="button peach" onclick="logOut()">
+          Log out ⮌
+        </button>
+      </div>
       <h2 id="listH2" class="self-align">List of Patients</h2>
       <hr class="dashed width50" />
-      <div class="colors-container">
+      <div class="colors-container fadeInUp">
         <div class="marker green">Improving FTT</div>
         <div class="marker yellow">Static FTT</div>
         <div class="marker red">Ftt deterioration</div>
       </div>
-      <div class="list-headings">
+      <div class="list-headings fadeInUp">
         <div class="flex2">Full name</div>
         <div class="flex1">I.D</div>
         <div class="flex1">Age</div>
@@ -66,9 +71,9 @@
         <div class="flex2">Under medicine care</div>
         <div class="flex2">Treatment progress</div>
       </div>
-      <div class="list-container" id="listContainer"></div>
+      <div class="list-container fadeInUp" id="listContainer"></div>
       <div id="overlay" class="display-none">
-        <div id="ftt-chart" class="fixed display-none">
+        <div id="ftt-chart" class="fixed display-none fadeInUp">
           <button id="xButton" class="button black" onclick="closeChart()">
             X
           </button>

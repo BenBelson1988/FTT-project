@@ -1,0 +1,59 @@
+#hugeHead {
+  font-size: 10vw;
+  margin: 0;
+  z-index: 1;
+}
+
+#innerHuge {
+  font-size: 5vw;
+  margin-left: -4vw;
+}
+
+#goBackButton {
+  position: absolute;
+  right: 10vw;
+  top: 100px;
+  width: 6vw;
+}
+
+#fttEx {
+  margin-top: 40px;
+  animation-fill-mode: both;
+  animation-delay: 500ms;
+}
+
+#fttEx1 {
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+
+#fttEx2 {
+  font-size: 2vw;
+  font-weight: 300;
+  animation-fill-mode: both;
+  animation-delay: 1500ms;
+  width: 50%;
+}
+
+#names {
+  font-weight: 700;
+  color: rgb(66, 51, 51);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+#babyImg {
+  position: absolute;
+  width: 15vw;
+  top: -5px;
+  z-index: 0;
+  left: 50vw;
+}
+
+#babyGif {
+  position: absolute;
+  animation-delay: 1500ms;
+  animation-fill-mode: both;
+  bottom: 15vh;
+  right: 30vw;
+  width: 15vw;
+}
