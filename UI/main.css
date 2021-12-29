@@ -6,6 +6,7 @@ html {
   font-family: sans-serif;
   font-size: x-large;
   overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -111,4 +112,8 @@ input[type="number"]:disabled {
   display: flex;
   flex-direction: row;
   margin-top: 2vh;
+}
+
+.bold {
+  font-weight: bold;
 }

@@ -92,6 +92,20 @@ function updateFields(patient) {
       illnessDiv.appendChild(illness);
     });
   }
+  if (patient.medicineTaken) {
+    let medicineList = document.getElementById("medicineList");
+    for (const [key, value] of Object.entries(patient.medicineTaken)) {
+      let medicineItem = document.createElement("div");
+      medicineItem.classList.add("medicine-item");
+      medicineItem.innerHTML += `${key} - ${value}` + "\n";
+      medicineList.appendChild(medicineItem);
+    }
+  } else
+    document.getElementById("medicineList").innerHTML = "No medicine taken.";
+  document.getElementById("medicalDiagnosis").innerHTML =
+    patient.medicalDiagnose;
+  document.getElementById("PsychotherpyRecommendation").innerHTML =
+    patient.psychologhy.description;
 }
 
 function birthToAge(birthDay) {
