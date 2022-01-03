@@ -30,22 +30,22 @@
                 <div class="dropdown-content">
                   <a href="../Login/Login.html">Home</a>
                   <a href="#">Messages</a>
-                  <a href="#">About</a>
+                  <a href="../About/About.html">About</a>
                 </div>
               </div>  
         </div>
-        <div class="flexRow">
+        <div class="flexRow fadeInUp">
           <h3 class="self-align" id="welcome" > Welcome to FTTell</h3>
           <button id="logOutButton"  class="button peach" onclick="logOut()"   >Log out ⮌</button>
           
         </div>
-        <div class='pageContent'> 
+        <div class='pageContent fadeInUp'> 
 
             <div id="leftDiv">
                   
 
                 <div>
-                    <h4>Continue treatment</h4>
+                    <h4 class="h4Headings">Continue treatment</h4>
                     <input class="input" id="exsistPatientID" type="number"  placeholder="Please enter patients id here" oninput="onChangeHandler('exsistPatientID')">
                     <button 
                     id="searchPatientButton" class="button black"   onclick="searchAddPatient('exsistPatientID')"  >Show details</button>
@@ -54,14 +54,14 @@
                 </div>
 
                 <div>
-                    <h4>Add new patient</h4>
-                    <input class="input" id="newPatientID" type="text"    placeholder="Enter new patient's ID here" oninput="onChangeHandler('newPatientID')">
+                    <h4 class="h4Headings">Add new patient</h4>
+                    <input class="input" id="newPatientID" type="number"    placeholder="Enter new patient's ID here" oninput="onChangeHandler('newPatientID')">
                     <button class="button black" onclick="searchAddPatient('newPatientID')"  >Add patient</button>
                     <p class="error" id="newPatientIDError"></p>
                 </div>
                 <hr class="solid">
                 <div id="AddPatientList"> 
-                    <h4>Upload list of patients from file</h4>
+                    <h4 class="h4Headings">Upload list of patients from file</h4>
                     <input type="file" class="input" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"   name="patientsList">
                 </div>
               
@@ -73,7 +73,7 @@
 
             <div id="rightDiv">
               <div id="patients-details-div" class="display-none">
-              <img class="emoji self-align" src="/UI/Pictures/emoji-icon-lineart-07-14-objects-medical-first-aid-kit-72dpi-forPersonalUseOnly.png" >
+              <img class="emoji self-align" src="../../UI/Pictures/emoji-icon-lineart-07-14-objects-medical-first-aid-kit-72dpi-forPersonalUseOnly.png" >
               <h3 class="self-align">Patient details</h3>
               <h5 class="h5Details">Full Name</h5>
              <div id="patientFullName" class="inputDiv"></div>
@@ -81,11 +81,11 @@
              <div id="patientAge" class="inputDiv"></div>
              <h5 class="h5Details">Medical Diagnosis</h5>
              <div id="medicalDiagnosis" class="inputDiv"></div>
-             <img id="pills" class="self-align" src="/UI/Pictures/hiclipart.com.png">
+             <img id="pills" class="self-align" src="../../UI/Pictures/hiclipart.com.png">
              <h5 class="h5Details">Medicines taken</h5>
              <div id="medicinesTaken" > </div>
               <div id="buttonsCont">
-                <button class="button black">Show full details</button>
+                <button class="button black" onclick="showFullDetails()">Show full details</button>
                 <button class="button black">Edit details</button>
               </div>
               </div>

@@ -23,7 +23,13 @@ function onChangeHandler(type) {
 }
 
 async function searchForPatient(id) {
-  let patients = await fecthPatients();
+  let [patients, doctorPatients] = await Promise.allSettled([
+    fecthPatients(),
+    fecthDoctorPatients(),
+  ]);
+  patients = patients.value.filter((patient) => {
+    return doctorPatients.value.includes(patient.id);
+  });
   for (let i = 0; i < patients.length; i++)
     if (patients[i].id === id) {
       tempPatientID = id;
@@ -38,12 +44,16 @@ async function searchForPatient(id) {
 async function addNewPatient(id) {
   let patients = await fecthPatients();
   console.log(patients);
-  patients.forEach((patient) => {
-    if (patient.id === id)
+  //change to regular for and break
+  for (let tempPatient = 0; tempPatient < patients.length; tempPatient++) {
+    if (patients[tempPatient].id === id) {
       document.getElementById("newPatientIDError").innerHTML =
         "ID already exist.";
-    else window.open("../Add Details/AddDetails.html?id=" + id, "_self");
-  });
+      return;
+    }
+  }
+
+  window.open("../Add Details/AddDetails.html?id=" + id, "_self");
 }
 
 function showDetails(patient) {
@@ -57,15 +67,13 @@ function showDetails(patient) {
   document.getElementById("medicalDiagnosis").innerHTML =
     patient.medicalDiagnose;
   let medicineList = document.getElementById("medicinesTaken");
+  medicineList.innerHTML = "";
   for (const [key, value] of Object.entries(patient.medicineTaken)) {
     let medicineItem = document.createElement("div");
     medicineItem.classList.add("medicine-item");
     medicineItem.innerHTML += `${key} - ${value}` + "\n";
     medicineList.appendChild(medicineItem);
   }
-  // Object.keys(patient.medicineTaken).forEach((medicine) => {
-  //   medicineList.innerHTML += medicine + Object.values(medicine);
-  // });
 }
 
 function openFullList() {
@@ -96,6 +104,13 @@ async function fecthPatients() {
   return patients;
 }
 
+async function fecthDoctorPatients() {
+  const pateintsResponse = await fetch(
+    `https://fttell-default-rtdb.firebaseio.com/doctors/${index}/patientsList.json`
+  );
+  return await pateintsResponse.json();
+}
+
 function logOut() {
   let data = false;
   fetch(
@@ -117,4 +132,11 @@ function birthToAge(birthDay) {
   var age = dateNow.getFullYear() - birthDay.substring(0, 4);
   if (birthDay.substring(5, 7) - dateNow.getMonth() + 1 > 0) age--;
   return age;
+}
+
+function showFullDetails() {
+  window.open(
+    "../Patient Full Details/PatientFullDetails.html?id=" + tempPatientID,
+    "_self"
+  );
 }

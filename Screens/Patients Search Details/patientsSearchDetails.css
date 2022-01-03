@@ -3,7 +3,6 @@
   flex-direction: column;
   height: 100vh;
   width: 60vw;
-  padding-top: 20px;
 }
 .header {
   position: relative;
@@ -11,6 +10,7 @@
   background-color: white;
   height: 60px;
   border-radius: 30px;
+  margin-top: 20px;
   box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
 }
 
@@ -90,6 +90,7 @@
   border-right: solid rgba(0, 0, 0, 0.328);
   padding-left: 20px;
   padding-right: 20px;
+  justify-content: space-between;
 }
 #rightDiv {
   position: relative;
@@ -117,6 +118,7 @@ hr.dashed {
 
 #logOutButton {
   align-self: flex-end;
+  width: 6vw;
 }
 
 .input {
@@ -126,10 +128,9 @@ hr.dashed {
 
 #fullPatientsListButton {
   width: 200px;
-  margin-bottom: 2vh;
+  margin-bottom: 3vh;
   align-self: center;
   justify-self: center;
-  margin-top: 40px;
 }
 
 h4 {
@@ -151,7 +152,7 @@ h4 {
 }
 
 .h5Details {
-  font-size: 20x;
+  font-size: 20px;
   margin: 0;
 }
 
@@ -162,11 +163,12 @@ h4 {
   width: 100%;
   min-height: 25px;
   max-height: 150px;
-  border-radius: 30px;
+  border-radius: 15px;
   background-color: white;
   border: none;
   margin-bottom: 10px;
   padding-left: 5px;
+  padding-right: 5px;
   overflow: auto;
   overflow-wrap: break-word;
 }
@@ -224,4 +226,9 @@ h3 {
 #welcome {
   margin: 0;
   margin-top: 15px;
+}
+
+.h4Headings {
+  margin-top: 2vh;
+  color: rgb(71, 71, 71);
 }

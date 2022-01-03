@@ -1,0 +1,147 @@
+#returnButton {
+  position: absolute;
+  top: 90px;
+  right: 27vw;
+  width: 6vw;
+}
+
+#pageContainer-fulldetails {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 60vw;
+}
+
+html {
+  overflow: auto;
+}
+
+body {
+  overflow: visible;
+  height: fit-content;
+}
+
+#logOutButton {
+  position: absolute;
+  top: 90px;
+  right: 20vw;
+  width: 6vw;
+}
+
+#h2head {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+#leftContent {
+  flex: 2;
+}
+
+#treatmentContent {
+  margin-top: 2vh;
+  width: 30vw;
+  height: 24vw;
+}
+
+.flex-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.flex-row {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.divContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-left: 5px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+#medicalHistory {
+  border-right: dashed rgba(0, 0, 0, 0.328);
+  border-left: dashed rgba(0, 0, 0, 0.328);
+  text-align: center;
+}
+
+.details {
+  height: 2.5vh;
+  width: 100%;
+}
+
+.illnessesList {
+  font-weight: bold;
+  font-size: 2vmin;
+  margin-top: 0;
+  margin-bottom: 2vh;
+}
+
+.smallInputDiv {
+  color: rgba(0, 0, 0, 0.671);
+  font-size: 15px;
+  line-height: 25px;
+  min-height: 25px;
+  max-height: 150px;
+  border-radius: 30px;
+  background-color: white;
+  border: none;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  overflow: auto;
+  overflow-wrap: break-word;
+}
+.illnessH5 {
+  margin-top: 20px;
+}
+
+.bottom_border {
+  border-bottom: dashed black;
+  margin-bottom: 20px;
+}
+
+h4 {
+  color: black;
+  margin: 0;
+}
+#doseHeadline {
+  margin-bottom: 10px;
+}
+
+.constTextArea {
+  height: 30%;
+}
+
+.h5Details-full {
+  margin: 0;
+  font-size: 1vw;
+  font-weight: 300;
+}
+
+#lastP {
+  animation-fill-mode: both;
+}
+
+#ftt-chart {
+  width: 40%;
+  align-self: center;
+  background-color: rgb(255, 255, 255);
+}
+
+/* #PsychotherpyRecommendation {
+  font-size: 15px;
+  font-weight: bold;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  padding-left: 1vw;
+} */

@@ -30,7 +30,6 @@ fetch(
         patientsList.forEach((patient) => {
           if (doctorPatients.includes(patient.id)) fullList.push(patient);
         });
-        console.log("full patient list", fullList);
         fullList.forEach((patient, index) => {
           let flexDiv = document.createElement("div");
           flexDiv.classList.add("flexDiv");
@@ -51,12 +50,16 @@ function addLine(flexDiv, patient, key) {
   if (key === "birthDate" || key === "id") line.classList.add("flex1");
   else line.classList.add("flex2");
   if (key === "currentPercentile") {
+    let progress = (
+      patient["fttProgress"][0].fttValue -
+      patient["fttProgress"][patient["fttProgress"].length - 1].fttValue
+    ).toFixed(2);
     line.innerHTML = patient[key];
-    patient[key] < 1
-      ? line.classList.add("green-background")
-      : patient[key] > 1 && patient[key] < 2
+    progress > 1
+      ? line.classList.add("red-background")
+      : progress > 0 && progress < 1
       ? line.classList.add("yellow-background")
-      : line.classList.add("red-background");
+      : line.classList.add("green-background");
   } else if (key === "birthDate") line.innerHTML = birthToAge(patient[key]);
   else if (key === "psychology") line.innerHTML = patient.psychologhy[underPsy];
   else if (key === "medicineTaken")
@@ -100,7 +103,6 @@ function expandTreatment(id) {
   let [patient] = fullList.filter((patientFromList) => {
     return patientFromList.id === id;
   });
-  console.log(patient.fttProgress);
   let labelArr = patient.fttProgress.map((label) => {
     return label.date;
   });
@@ -127,9 +129,17 @@ function expandTreatment(id) {
         duration: 3000,
       },
       scales: {
-        y: {
-          beginAtZero: true,
-        },
+        yAxes: [
+          {
+            display: true,
+            ticks: {
+              beginAtZero: true,
+              steps: 10,
+              stepValue: 5,
+              max: 100,
+            },
+          },
+        ],
       },
     },
   });
@@ -145,4 +155,20 @@ window.addEventListener("click", function (e) {
 function closeChart() {
   document.getElementById("overlay").classList.add("display-none");
   document.getElementById("ftt-chart").classList.add("display-none");
+}
+
+function logOut() {
+  let data = false;
+  fetch(
+    `https://fttell-default-rtdb.firebaseio.com/doctors/${index}/loggedIn.json`,
+    {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }
+  ).then(() => {
+    window.localStorage.clear(), window.open("../Login/Login.html", "_self");
+  });
 }

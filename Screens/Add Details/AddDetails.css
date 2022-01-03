@@ -64,8 +64,16 @@ h4 {
   justify-content: space-between;
 }
 
-#logOutButton1 {
+#goBackButton {
   position: absolute;
-  top: 100px;
-  right: 0;
+  top: 105px;
+  right: 20vw;
+  width: 6vw;
+}
+
+#logOutButton {
+  position: absolute;
+  top: 105px;
+  right: 27vw;
+  width: 6vw;
 }

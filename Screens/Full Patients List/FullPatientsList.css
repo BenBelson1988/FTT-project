@@ -7,8 +7,12 @@
 }
 
 #btn-go-back {
-  align-self: flex-end;
-  margin: 1vw;
+  width: 6vw;
+  margin-right: 1vw;
+}
+
+#logOutButton {
+  width: 6vw;
 }
 
 #list-header {
@@ -144,6 +148,7 @@ hr.width50 {
   align-self: flex-end;
   text-align: center;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 #overlay {

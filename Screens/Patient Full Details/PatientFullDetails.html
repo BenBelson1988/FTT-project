@@ -1,0 +1,142 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Patient full details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../Patients Search Details/patientsSearchDetails.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../../UI/main.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="PatientFullDetails.css"
+    />
+  </head>
+  <body>
+    <div id="pageContainer-fulldetails">
+      <img
+        class="loader display-none"
+        id="loader"
+        src="../../UI//Loader/Loader.svg"
+      />
+      <div class="header">
+        <a id="FTTellLink" href="../Login/Login.html"> FTTell</a>
+        <div class="dropdown">
+          <img
+            class="dropbtn"
+            src="../../UI/Pictures/hamburger-button-computer-icons-menu-minimalist-menu-2bcc4c807e889ed721f4f6731146b41c.png"
+          />
+          <div class="dropdown-content">
+            <a href="../Login/Login.html">Home</a>
+            <a href="#">Messages</a>
+            <a href="../About/About.html">About</a>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="h2head" class="self-align"></h2>
+      <button
+        id="returnButton"
+        class="button peach"
+        onclick="goBackToHomepage()"
+      >
+        Go back ⮌
+      </button>
+      <button id="logOutButton" class="button peach" onclick="logOut()">
+        Log out ⮌
+      </button>
+      <div class="flex-column fadeInUp">
+        <div id="leftContent" class="pageContent">
+          <div class="divContent">
+            <h4 class="bottom_border self-align">Basic details</h4>
+            <h5 class="h5Details-full">Full Name</h5>
+            <div id="fullName" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">ID</h5>
+            <div id="id" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">Mother name</h5>
+            <div id="motherName" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">Mother height</h5>
+            <div id="motherHeight" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">Father name</h5>
+            <div id="fatherName" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">Father height</h5>
+            <div id="fatherHeight" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">Age</h5>
+            <div id="birthDate" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">Current percentile</h5>
+            <div id="currentPercentile" class="smallInputDiv" type="text"></div>
+          </div>
+          <div id="medicalHistory" class="divContent">
+            <h4 class="bottom_border self-align">Current Medical diagnosis</h4>
+            <div id="medicalDiagnosis" class="inputDiv"></div>
+            <h4 class="bottom_border self-align">Medical history</h4>
+          </div>
+
+          <div class="divContent">
+            <h4 class="bottom_border self-align">Weight Info</h4>
+            <h5 class="h5Details-full">Birth weight</h5>
+            <div id="birth" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">6-week-weight</h5>
+            <div id="sixWeek" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">12-week-weight</h5>
+            <div id="twelveWeek" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">18-week-weight</h5>
+            <div id="eighteenWeek" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">24-week-weight</h5>
+            <div id="twentyFourWeek" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">36-week-weight</h5>
+            <div id="thirtySixWeek" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">48-week-weight</h5>
+            <div id="fourtyEightWeek" class="smallInputDiv" type="text"></div>
+            <h5 class="h5Details-full">60-week-weight</h5>
+            <div id="sixtyWeek" class="smallInputDiv" type="text"></div>
+          </div>
+        </div>
+        <div class="flex-row">
+          <div id="ftt-chart" class="pageContent fadeInUp">
+            <canvas id="myChart" width="5vw" height="5vh"></canvas>
+          </div>
+
+          <div id="treatmentContent" class="pageContent">
+            <div class="divContent">
+              <h4 class="bottom_border self-align">Treatment suggestion</h4>
+              <h5 id="doseHeadline" class="h5Details-full self-align">
+                🧪Medicine dosage
+              </h5>
+              <div class="constTextArea" id="medicineList"></div>
+              <h5 class="h5Details-full self-align">
+                🍔Nurition Recommendation
+              </h5>
+              <div
+                class="constTextArea inputDiv"
+                id="nutritionRecommendation"
+              ></div>
+              <h5 class="h5Details-full self-align">🧠Psychotherpy</h5>
+              <div
+                class="constTextArea inputDiv"
+                id="PsychotherpyRecommendation"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="PatientFullDetails.js"></script>
+  </body>
+</html>
