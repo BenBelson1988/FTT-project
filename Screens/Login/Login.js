@@ -20,11 +20,14 @@ tabs.onclick = (e) => {
       content.classList.remove("active");
     });
     const element = document.getElementById(id);
-    element.id === "tab2"
-      ? (document.getElementById("mainPic").src =
-          "../../UI/Pictures/family.png")
-      : (document.getElementById("mainPic").src =
-          "../../UI/Pictures/physician-doctor-of-medicine-clinic-pharmacy-others-c49e23a871d01835de3d82e5011fca23.png");
+    if (element.id === "tab2") {
+      document.getElementById("mainPic").src = "../../UI/Pictures/family.png";
+      document.getElementById("signUp").classList.remove("display-none");
+    } else {
+      document.getElementById("mainPic").src =
+        "../../UI/Pictures/physician-doctor-of-medicine-clinic-pharmacy-others-c49e23a871d01835de3d82e5011fca23.png";
+      document.getElementById("signUp").classList.add("display-none");
+    }
     element.classList.add("active");
   }
 };
@@ -98,6 +101,24 @@ doctorLogIn = (e) => {
         }
       }
     });
+};
+
+parentsLogIn = (e) => {
+  e.preventDefault();
+
+  let id = document.getElementById("parentsForm").elements[0].value;
+  let parentPassword = document.getElementById("parentsForm").elements[1].value;
+
+  if (id === "") {
+    document.getElementById("idError").innerHTML = "Please fill in ID.";
+    return;
+  }
+
+  if (parentPassword === "") {
+    document.getElementById("parentPasswordError").innerHTML =
+      "Please fill password.";
+    return;
+  }
 };
 
 onInputHandler = (error) => {
