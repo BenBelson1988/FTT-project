@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parent Home</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="ParentHome.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../../UI/main.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../Patients Search Details/patientsSearchDetails.css"
+    />
+  </head>
+  <body>
+    <div class="pageContainer">
+      <img
+        class="loader display-none"
+        id="loader"
+        src="../../UI//Loader/Loader.svg"
+      />
+      <div class="header">
+        <a id="FTTellLink" href="../Login/Login.html"> FTTell</a>
+        <a class="menuButton" href="../Login/Login.html">Home</a>
+        <a class="menuButton" href="../About/About.html">About</a>
+      </div>
+      <button id="logOutButton" class="button peach" onclick="logOut()">
+        Log out ⮌
+      </button>
+    </div>
+    <script src="ParentHome.js"></script>
+  </body>
+</html>

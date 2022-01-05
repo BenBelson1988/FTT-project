@@ -2,6 +2,8 @@ const myStorage = window.localStorage;
 let licenseNumber = myStorage.getItem("loggedIn");
 if (licenseNumber)
   window.open("../Patients Search Details/PatientSearchDetails.html", "_self");
+let parent = myStorage.getItem("parent");
+if (parent) window.open("../Parent Home/ParentHome.html", "_self");
 
 //////Tabs JS
 const tabs = document.querySelector(".wrapper");
