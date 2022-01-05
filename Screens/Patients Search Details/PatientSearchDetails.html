@@ -25,14 +25,8 @@
 
         <div class='header'>
             <a id=FTTellLink href="../Login/Login.html"> FTTell</a>
-            <div class="dropdown">
-                <img class="dropbtn" src="../../UI/Pictures/hamburger-button-computer-icons-menu-minimalist-menu-2bcc4c807e889ed721f4f6731146b41c.png"/>
-                <div class="dropdown-content">
-                  <a href="../Login/Login.html">Home</a>
-                  <a href="#">Messages</a>
-                  <a href="../About/About.html">About</a>
-                </div>
-              </div>  
+                  <a class="menuButton" href="../Login/Login.html">Home</a>
+                  <a class="menuButton" href="../About/About.html">About</a>
         </div>
         <div class="flexRow fadeInUp">
           <h3 class="self-align" id="welcome" > Welcome to FTTell</h3>
@@ -57,9 +51,9 @@
                     <h4 class="h4Headings">Add new patient</h4>
                     <input class="input" id="newPatientID" type="number"    placeholder="Enter new patient's ID here" oninput="onChangeHandler('newPatientID')">
                     <button class="button black" onclick="searchAddPatient('newPatientID')"  >Add patient</button>
-                    <p class="error" id="newPatientIDError"></p>
+                    <p class="error" id="newPatientIDError"></p><hr class="solid">
                 </div>
-                <hr class="solid">
+                
                 <div id="AddPatientList"> 
                     <h4 class="h4Headings">Upload list of patients from file</h4>
                     <input type="file" class="input" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"   name="patientsList">

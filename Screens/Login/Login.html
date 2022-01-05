@@ -59,15 +59,37 @@
             </div>
             <div class="content" id="tab2">
               <form id="parentsForm">
-                <input type="text" placeholder="Please enter ID" />
+                <input
+                  oninput="onInputHandler('idError')"
+                  type="text"
+                  placeholder="Please enter ID"
+                />
                 <p id="idError" class="error"></p>
-                <input type="password" placeholder="Please enter password" />
+                <input
+                  oninput="onInputHandler('parentPasswordError')"
+                  type="password"
+                  placeholder="Please enter password"
+                />
                 <p id="parentPasswordError" class="error"></p>
-                <button class="button white">Log In ✔</button>
+                <div class="flex-row">
+                  <button
+                    onclick="parentsLogIn(event)"
+                    id="LogInParents"
+                    class="button white"
+                  >
+                    Log In ✔
+                  </button>
+                  <button class="button white">Continue as a guest 🧍</button>
+                </div>
               </form>
             </div>
           </div>
-          <a href="../Forget Password/ForgetPassword.html">Forgot password?</a>
+          <a class="sign" href="../Forget Password/ForgetPassword.html"
+            >Forgot password?</a
+          >
+          <a id="signUp" class="sign display-none" href="../Sign Up/SignUp.html"
+            >New to FTTell? Sign up</a
+          >
         </div>
       </div>
       <div class="flexColumn">

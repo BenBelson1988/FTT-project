@@ -1,0 +1,17 @@
+.pageContainer {
+  justify-content: center;
+  text-align: center;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flex2 {
+  flex: 2;
+  margin-right: 2vw;
+}
+
+.big {
+  font-size: 50px;
+}
