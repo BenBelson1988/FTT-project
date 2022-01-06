@@ -12,8 +12,10 @@ if (!document.getElementById("id").value) goBack();
 var formObject = {
   fullName: "",
   id: 0,
+  motherID: "",
   motherName: "",
   motherHeight: 0,
+  fatherID: "",
   fatherName: "",
   fatherHeight: 0,
   birthDate: "",
