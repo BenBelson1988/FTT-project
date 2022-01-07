@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sign Up to FTTell</title>
     <link rel="stylesheet" type="text/css" media="screen" href="SignUp.css" />
     <link
       rel="stylesheet"
@@ -27,24 +27,77 @@
   </head>
   <body>
     <div class="pageContainer fadeInUp">
+      <div id="popUpDiv" class="display-none">
+        <h2>successfully signed up!</h2>
+        <h3>Redirect in</h3>
+        <h3 id="redirectTime">3</h3>
+      </div>
+      <img
+        class="loader display-none"
+        id="loader"
+        src="../../UI//Loader/Loader.svg"
+      />
+      <button id="goBack" onclick="goBack()" class="button peach">
+        go Back ⮌
+      </button>
+      <img id="babyBoss" src="../../UI/Pictures/boss-baby.png" />
       <div class="flex-row">
         <div class="flex2">
-          <h1 class="big">Check and follow your child</h1>
-          <h3>
+          <h1 class="big">Check and follow your child's treatment</h1>
+          <h3 class="desc">
             sign up to FTTell, follow your child's treatment, be calm and know
             he will be in good hands :)
           </h3>
         </div>
         <div class="flex1">
           <form id="signUp-form">
-            <input placeholder="Please enter ID" type="number" />
-            <input placeholder="Please enter full name" type="text" />
-            <input placeholder="Please enter E-mail" type="email" />
-            <input placeholder="Please enter Password" type="password" />
-            <input placeholder="Please enter" />
+            <input
+              oninput="onInputHandler('id')"
+              id="id"
+              placeholder="Please enter ID"
+              type="number"
+            />
+            <p class="error" id="idError"></p>
+            <input
+              oninput="onInputHandler('name')"
+              id="name"
+              placeholder="Please enter Full name"
+              type="text"
+            />
+            <p class="error" id="nameError"></p>
+            <input
+              oninput="onInputHandler('email')"
+              id="email"
+              placeholder="Please enter E-mail"
+              type="email"
+            />
+            <p class="error" id="emailError"></p>
+            <input
+              oninput="onInputHandler('password1')"
+              id="password1"
+              placeholder="Please enter Password"
+              type="password"
+            />
+            <p class="error" id="password1Error"></p>
+            <input
+              oninput="onInputHandler('password2')"
+              id="password2"
+              placeholder="Please re-enter Password"
+              type="password"
+            />
+            <p class="error" id="password2Error"></p>
+            <button
+              id="signUp"
+              onclick="signUpToFTT(event)"
+              class="black button"
+            >
+              Sign up
+            </button>
           </form>
         </div>
       </div>
     </div>
+
+    <script src="SignUp.js"></script>
   </body>
 </html>

@@ -8,10 +8,61 @@
 }
 
 .flex2 {
-  flex: 2;
+  flex: 3;
   margin-right: 2vw;
 }
 
 .big {
-  font-size: 50px;
+  font-size: 70px;
+  margin-top: 0;
+}
+
+.desc {
+  font-weight: 100;
+}
+
+#goBack {
+  position: fixed;
+  top: 10%;
+  right: 0;
+}
+
+#babyBoss {
+  width: 15vw;
+  position: fixed;
+  top: 0;
+  left: 20%;
+}
+
+#signUp {
+  animation: scale 1s infinite ease-in-out;
+  margin-top: 1vh;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#signUp-form {
+  margin-top: 2vh;
+}
+
+#popUpDiv {
+  position: fixed;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+  border-radius: 15px;
+  top: 30%;
+  left: 25%;
+  background-color: aliceblue;
+  width: 25vw;
+  height: 30vh;
+  z-index: 1;
 }

@@ -2,6 +2,8 @@ const myStorage = window.localStorage;
 let licenseNumber = myStorage.getItem("loggedIn");
 if (licenseNumber)
   window.open("../Patients Search Details/PatientSearchDetails.html", "_self");
+let parent = myStorage.getItem("parent");
+if (parent) window.open("../Parent Home/ParentHome.html", "_self");
 
 //////Tabs JS
 const tabs = document.querySelector(".wrapper");
@@ -103,7 +105,7 @@ doctorLogIn = (e) => {
     });
 };
 
-parentsLogIn = (e) => {
+parentsLogIn = async (e) => {
   e.preventDefault();
 
   let id = document.getElementById("parentsForm").elements[0].value;
@@ -119,8 +121,40 @@ parentsLogIn = (e) => {
       "Please fill password.";
     return;
   }
+  document.getElementById("loader").classList.remove("display-none");
+  let parentArray = await fecthParents();
+  let parent = "";
+  for (let i = 0; i < parentArray.length; i++) {
+    if (parentArray[i].ID === id) {
+      parent = parentArray[i];
+      break;
+    }
+  }
+  if (!parent) {
+    document.getElementById("loader").classList.add("display-none");
+    document.getElementById("idError").innerHTML =
+      "Wrong id, Please try again.";
+    return;
+  }
+  if (parent.password !== parentPassword) {
+    document.getElementById("loader").classList.add("display-none");
+    document.getElementById("parentPasswordError").innerHTML =
+      "Wrong Password, Please Try again.";
+    return;
+  }
+  document.getElementById("loader").classList.add("display-none");
+  localStorage.setItem("parent", parent.ID);
+  window.open("../Parent Home/ParentHome.html", "_self");
 };
 
 onInputHandler = (error) => {
   document.getElementById(error).innerHTML = "";
 };
+
+async function fecthParents() {
+  const response = await fetch(
+    `https://fttell-default-rtdb.firebaseio.com/parents.json`
+  );
+  const parents = await response.json();
+  return parents;
+}
