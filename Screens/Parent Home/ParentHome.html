@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,6 +41,68 @@
       <button id="logOutButton" class="button peach" onclick="parentLogOut()">
         Log out ⮌
       </button>
+      <h3 id="welcomeParent"></h3>
+      <div id="container" class="fadeInUp">
+        <div id="flexRow">
+          <div id="leftFlex1" class="flex1">
+            <h4 id="currentChilds"></h4>
+            <div id="childList"></div>
+          </div>
+          <div id="leftFlex2" class="flex1">
+            <h4 id="fttCalc" class="h4Home"></h4>
+            <button id="fttButton" class="white button display-none">
+              Click for FTT treatment
+            </button>
+          </div>
+        </div>
+        <div id="childDetails">
+          <div id="left" class="flex1">
+            <h5 id="weight-head">weight info</h5>
+            <div id="birthDiv" class="flex-row-parent">
+              <h4 id="h4Head">Birth</h4>
+              <div class="input-div" id="birth"></div>
+            </div>
+            <div id="sixMonthDiv" class="flex-row-parent">
+              <h4 id="h4Head">Six Month</h4>
+              <div id="sixMonth" class="input-div"></div>
+            </div>
+            <div id="twelveMonthDiv" class="flex-row-parent">
+              <h4 id="h4Head">Twelve Month</h4>
+              <div id="twelveMonth" class="input-div"></div>
+            </div>
+            <div id="eighteenMonthDiv" class="flex-row-parent">
+              <h4 id="h4Head">Eighteen Month</h4>
+              <div id="eighteenMonth" class="input-div"></div>
+            </div>
+            <div id="twentyFourMonthDiv" class="flex-row-parent">
+              <h4 id="h4Head">Twenty Four Month</h4>
+              <div id="twentyFourMonth" class="input-div"></div>
+            </div>
+            <div id="thirtySixMonthDiv" class="flex-row-parent">
+              <h4 id="h4Head">Thirty Six Month</h4>
+              <div id="thirtySixMonth" class="input-div"></div>
+            </div>
+            <div id="fourtyEightMonthDiv" class="flex-row-parent">
+              <h4 id="h4Head">Fourty Eight Month</h4>
+              <div id="fourtyEightMonth" class="input-div"></div>
+            </div>
+            <div id="sixtyMonthDiv" class="flex-row-parent">
+              <h4 id="h4Head">sixty Month</h4>
+              <div id="sixtyMonth" class="input-div"></div>
+            </div>
+            <h5 id="weight-head">Current Treatment</h5>
+            <div id="treatmentDiv" class="textDiv"></div>
+            <h5 id="weight-head">🧪Medicine taken</h5>
+            <div id="medicineList"></div>
+          </div>
+          <div id="right" class="flex1">
+            <h5 id="weight-head">FTT child's percentile</h5>
+            <div id="chart-holder">
+              <canvas id="myChart" width="5vw" height="5vh"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="ParentHome.js"></script>
   </body>
