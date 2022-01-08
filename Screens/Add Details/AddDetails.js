@@ -9,7 +9,7 @@ document.getElementById("id").value = parseInt(
 if (!document.getElementById("id").value) goBack();
 
 //Form Object
-var formObject = {
+var formObject = { 
   fullName: "",
   id: 0,
   motherID: "",
@@ -45,6 +45,7 @@ let illness = 0;
 const illnesses = [
   "Occult blood in stool",
   "Reflux",
+  "Food allergy",
   "Eating disorder",
   "Celiac",
   "Malabsorption",
@@ -54,7 +55,7 @@ const illnesses = [
 let tempIlnesess = illnesses;
 
 function addIlness() {
-  if (illness === 7) return;
+  if (illness === 8) return;
   if (illness !== 0) {
     let comboBox = document.getElementById("illness" + illness);
     if (comboBox.selectedOptions[0].text === "Please select illness") {
@@ -168,9 +169,16 @@ function submitForm() {
   let isFTTexist = calculateIfFTTexist(percentilesArr); //if isFTTexist is true it means that there is ftt
   const currentChildPercentile = childPercentile.currentPercentile; //the current child percentile
   let psychoAssessmentArr = fecthQuestion();
+  let psychoSocialRecommendation = getPsychoRecommendation(psychoAssessmentArr);//here we finished psycosocial recommendations
+  let medicalRecommendation = getMedicalRecommendation(formObject.illnesses);//here we finished medical recommendations
+  let nutritionRecommendations = getNutritionRecommendations(percentilesArr[0]);//here we have nutrition recommendations
   console.log(psychoAssessmentArr);
   console.log(childPercentile);
   console.log(percentilesArr);
+  console.log(psychoSocialRecommendation);
+  console.log(medicalRecommendation);
+  console.log(nutritionRecommendations);
+  console.log("is there FTT",isFTTexist)
 }
 
 //dynamic check for each input.
@@ -529,6 +537,7 @@ function currentPercentileCalc() {
 }
 
 function calculateIfFTTexist(percentilesArray) {
+  debugger
   let LastIndexChecked = 0;
   let firstIndex;
   let birthPercentile = percentilesArray[0];
@@ -540,9 +549,15 @@ function calculateIfFTTexist(percentilesArray) {
     }
     if (percentilesArray[i] !== -1) LastIndexChecked = i;
   }
+  for (let i = 0; i < allThePercentiles.length; i++) {
+    if(percentilesArray[LastIndexChecked]===allThePercentiles[i])
+    LastIndexChecked=i;
+    break;
+  }
+
   if (LastIndexChecked > 3) return true; //means there is FTT
 
-  if (firstIndex - LastIndexChecked > 1)
+  if (LastIndexChecked - firstIndex > 1)
     //2 majot percentiles broken
     return true; // there is FTT
   return false; /// there is no FTT
@@ -557,3 +572,309 @@ function fecthQuestion() {
   );
   return questionObject;
 }
+
+function getPsychoRecommendation(psychoAssessmentArr){
+let recomendationArray=[];
+let allRecommendation=[
+  "There is an attitude not to push a child to eat. Instead, give the child the access to healthy and nutritious food regularly.",
+  "Parent guidence might help,in order to precise food quantity, and make the enviromental conditions optimal for child eating. ",
+  "Quiet feeding enviroment might help the chid to eat. Consider to isolate the child during meal time.",
+  "Exposure to different texture might help the child to adopt favorite texture, and eat more. Be aware to food or texure the child likes.",
+  "If a child eats better when distracted(by TV for example), you may consider distraction as feeding help. Don't use it as a conditioning.",
+  "Nerve stimulation might be caused by textures or look of food. Consider adjustment of food.",
+  "The act of taking medicines might be difficult for a child, consider medicines that look like candies.",
+  "Reduce mental pressure and noisy enviroment.",
+  "Large variety of food might confuse the child.",
+  "Let the child determine the food amount he/she eats.",
+  "Conditions related to food are not recommended"
+]
+ if(!psychoAssessmentArr.includes(true)){
+   recomendationArray.push("No field chosen.")
+  return recomendationArray;
+}
+psychoAssessmentArr.forEach((question,index)=>{
+ 
+  if(index===7){
+    if(question===false)
+     recomendationArray.push(allRecommendation[index]);
+    return;
+  }
+  if(question===true)
+    recomendationArray.push(allRecommendation[index]);
+})
+return recomendationArray;
+}
+
+function getMedicalRecommendation(patientIllnesses){
+  let recomendationArray=[];
+
+  patientIllnesses.forEach((ilness,index)=>{
+
+    if(ilness==="Reflux")
+      recomendationArray.push(ilness+": Nutrition change to 'Anti reflux' formula, anti acids, smaller more frequent feedings, feed while child is elevated.");
+    if(ilness==="Occult blood in stool")
+      recomendationArray.push(ilness+": Nutrition change to hypoallergenic formula, check for inflammatory bowel disease.");
+    if(ilness==="Food allergy")
+      recomendationArray.push(ilness+": Allergy skin test, Avoid the allergan detected, if breast fade-mom should avoid the alergan.");
+    if(ilness==="Eating disorder")
+      recomendationArray.push(ilness+": Eating disorder clinic, psychiatric assessment, folic acid, vitamins, protein, zinc.");
+    if(ilness==="Celiac")
+      recomendationArray.push(ilness+": Avoid gluten containing foods.");
+    if(ilness==="Malabsorption")
+      recomendationArray.push(ilness+": Nutritional supplement(such as 'pedisure'), reduce sweet drinks.");
+    if(ilness==="Chronic infection")
+      recomendationArray.push(ilness+": Antibiotics+anti-acids.");
+    if(ilness==="Mood disorder")
+      recomendationArray.push(ilness+": psychiatric assessment.");
+})
+return recomendationArray;
+
+}
+
+function getNutritionRecommendations(birthPercentile){
+  boysFivePercentileArr = [
+    "2.5",
+    "6.4",
+    "8.6",
+    "9.8",
+    "10.6",
+    "12",
+    "13.3",
+    "14.7",
+  ];
+  boysTenPercentileArr = [
+    "2.8",
+    "6.8",
+    "9",
+    "10.2",
+    "11.05",
+    "12.43",
+    "13.9",
+    "15.5",
+  ];
+  boysTwentyFivePercentileArr = [
+    "3.1",
+    "7.3",
+    "9.6",
+    "10.9",
+    "11.8",
+    "13.1",
+    "15",
+    "16.7",
+  ];
+  boysFiftyPercentileArr = [
+    "3.6",
+    "7.8",
+    "10.3",
+    "11.7",
+    "12.6",
+    "14.3",
+    "16.3",
+    "18.3",
+  ];
+  boysSeventyFivePercentile = [
+    "4",
+    "8.5",
+    "11.1",
+    "12.6",
+    "13.6",
+    "15.4",
+    "17.8",
+    "20.1",
+  ];
+  boysNintyPercentileArr = [
+    "4.3",
+    "9.2",
+    "11.9",
+    "13.5",
+    "14.6",
+    "16.6",
+    "19.3",
+    "21.9",
+  ];
+  boysNintyFivePercentileArr = [
+    "4.5",
+    "9.6",
+    "12.4",
+    "14",
+    "15.2",
+    "17.4",
+    "20.2",
+    "23",
+  ];
+  girlsFivePercentileArr = [
+    "2.5",
+    "6",
+    "7.3",
+    "8.4",
+    "9.4",
+    "11.3",
+    "12.9",
+    "14.4",
+  ];
+  girlsTenPercentileArr = [
+    "2.7",
+    "6.2",
+    "7.7",
+    "8.8",
+    "9.8",
+    "11.8",
+    "13.5",
+    "15.2",
+  ];
+  girlsTwentyFivePercentileArr = [
+    "2.9",
+    "6.7",
+    "8.2",
+    "9.4",
+    "10.6",
+    "12.7",
+    "14.7",
+    "16.5",
+  ];
+  girlsFiftyPercentileArr = [
+    "3.2",
+    "7.3",
+    "8.9",
+    "10.2",
+    "11.5",
+    "13.9",
+    "16.1",
+    "18.2",
+  ];
+  girlsSeventyFivePercentile = [
+    "3.6",
+    "7.9",
+    "9.7",
+    "11.1",
+    "12.5",
+    "15.1",
+    "17.7",
+    "20.2",
+  ];
+  girlsNintyPercentileArr = [
+    "3.9",
+    "8.5",
+    "10.5",
+    "12",
+    "13.5",
+    "16.4",
+    "19.3",
+    "22.2",
+  ];
+  girlsNintyFivePercentileArr = [
+    "4",
+    "8.9",
+    "11",
+    "12.6",
+    "14.2",
+    "17.3",
+    "20.4",
+    "23.5",
+  ];
+  let recomendationArray = [];
+  let ageMonths = birthToAge(formObject.birthDate);//age of child
+  let closestMonthIndex=getLastPercentile(ageMonths);
+  let expectedWeight;
+   birthPercentile = parseInt(birthPercentile)
+  if(formObject.gender="Male"){
+    if(birthPercentile===5||birthPercentile===0){
+      expectedWeight = boysFivePercentileArr[closestMonthIndex]
+    }
+    if(birthPercentile===10){
+      expectedWeight = boysTenPercentileArr[closestMonthIndex]
+    }
+    if(birthPercentile===25){
+      expectedWeight = boysTwentyFivePercentileArr[closestMonthIndex]
+    }
+    if(birthPercentile===50){
+      expectedWeight = boysFiftyPercentileArr[closestMonthIndex]
+    }
+    if(birthPercentile===75){
+      expectedWeight = boysSeventyFivePercentile[closestMonthIndex]
+    }
+    if(birthPercentile===90){
+      expectedWeight = boysNintyPercentileArr[closestMonthIndex]
+    }
+    if(birthPercentile===95){
+      expectedWeight = boysNintyFivePercentileArr[closestMonthIndex]
+    }
+
+  }
+  else{
+    if(birthPercentile===5||birthPercentile===0){
+      expectedWeight = girlsFivePercentileArr[closestMonthIndex]
+    }
+    if(birthPercentile===10){
+      expectedWeight = girlsTenPercentileArr[closestMonthIndex]
+    }
+    if(birthPercentile===25){
+      expectedWeight = girlsTwentyFivePercentileArr[closestMonthIndex]
+    }
+    if(birthPercentile===50){
+      expectedWeight = girlsFiftyPercentileArr[closestMonthIndex]
+    }
+    if(birthPercentile===75){
+      expectedWeight = girlsSeventyFivePercentile[closestMonthIndex]
+    }
+    if(birthPercentile===90){
+      expectedWeight = girlsNintyPercentileArr[closestMonthIndex]
+    }
+    if(birthPercentile===95){
+      expectedWeight = girlsNintyFivePercentileArr[closestMonthIndex]
+    }
+
+  }
+  let currentAge = ageMonths/12
+  if(currentAge<=2){
+    recomendationArray.push("Calcium: 700 miligram");
+    recomendationArray.push("Fibers: 19 gram");
+    recomendationArray.push("B12&B-vitamins: 0.5 microgram");
+    recomendationArray.push("D vitamin: 8.5 microgram");
+    recomendationArray.push("E vitamin: 200 microgram");
+    recomendationArray.push("A vitamin: 550 microgram");
+    recomendationArray.push("C vitamin: 15 miligram");
+    recomendationArray.push("Iron: 10 miligram");
+    recomendationArray.push("Zinc: 9 miligram");
+    recomendationArray.push("protein: "+ expectedWeight * 1.5);
+    recomendationArray.push("Total calories intake per day recommendation: "+ ((120 *expectedWeight)/formObject.currentWeight));
+  }
+  if(currentAge>2 && currentAge<=3){
+    recomendationArray.push("Calcium: 700 miligram");
+    recomendationArray.push("Fibers: 19 gram");
+    recomendationArray.push("B12&B-vitamins: 0.9 microgram");
+    recomendationArray.push("D vitamin: 10 microgram");
+    recomendationArray.push("E vitamin: 200 microgram");
+    recomendationArray.push("A vitamin: 600 microgram");
+    recomendationArray.push("C vitamin: 15 miligram");
+    recomendationArray.push("Iron: 10 miligram");
+    recomendationArray.push("Zinc: 9 miligram");
+    recomendationArray.push("protein: "+ expectedWeight * 1.5);
+    recomendationArray.push("Total calories intake per day recommendation: "+ ((120 *expectedWeight)/formObject.currentWeight));
+  }
+  if(currentAge>3){
+    recomendationArray.push("Calcium: 1000 miligram");
+    recomendationArray.push("Fibers: 25 gram");
+    recomendationArray.push("B12&B-vitamins: 1.2 microgram");
+    recomendationArray.push("D vitamin: 10 microgram");
+    recomendationArray.push("E vitamin: 300 microgram");
+    recomendationArray.push("A vitamin: 900 microgram");
+    recomendationArray.push("C vitamin: 25 miligram");
+    recomendationArray.push("Iron: 15 miligram");
+    recomendationArray.push("Zinc: 9 miligram");
+    recomendationArray.push("protein: "+ expectedWeight * 1.5);
+    recomendationArray.push("Total calories intake per day recommendation: "+ ((120 *expectedWeight)/formObject.currentWeight));
+  }
+  return recomendationArray;
+}
+
+function getLastPercentile(ageMonths){
+  if(ageMonths<9) return 1;
+  if(ageMonths<15) return 2;
+  if(ageMonths<22) return 3;
+  if(ageMonths<31) return 4;
+  if(ageMonths<43) return 5;
+  if(ageMonths<55) return 6;
+  return 7;
+}
+
