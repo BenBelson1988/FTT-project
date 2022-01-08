@@ -92,3 +92,58 @@ h4 {
   right: 27vw;
   width: 6vw;
 }
+
+html {
+  overflow: auto;
+}
+
+body {
+  overflow: visible;
+  height: fit-content;
+}
+
+#psy {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 98%;
+  height: fit-content;
+  padding-bottom: 10vh;
+  border-radius: 15px;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+#psy-container {
+  margin-bottom: 5vh;
+  flex-direction: column;
+}
+
+#question-holder {
+  height: 4vh;
+  width: 90%;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid;
+}
+
+.question-header {
+  font-weight: 500;
+  font-size: 1vw;
+  width: 90%;
+  margin: 0;
+}
+
+.input-question {
+  width: 1vw;
+  height: 4vh;
+  margin: 0;
+}
+
+#upper-container {
+  height: 85vh;
+}
+
+#add-pageContainer {
+  height: fit-content;
+}

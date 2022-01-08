@@ -25,16 +25,16 @@
     />
   </head>
   <body>
-    <div class="pageContainer">
+    <div id="upper-container" class="pageContainer">
       <div class='header'>
         <a id=FTTellLink href="../Login/Login.html"> FTTell</a>
               <a class="menuButton" href="../Login/Login.html">Home</a>
               <a class="menuButton" href="../About/About.html">About</a>
-    </div>
+        </div>
             <h2 id="h2head" class="self-align">Please fill in child's details</h2>
             <button id="goBackButton"  class="button peach" onclick="goBack()"   >Go back ⮌</button>
             <button id="logOutButton"  class="button peach" onclick="logOut()"   >Log out ⮌</button>
-      <div class="pageContent fadeInUp">
+      <div id="add-pageContainer" class="pageContent fadeInUp">
           
         <div class="divContent" id="basic-info">
           <h4 class="self-align">Basic Info</h4>
@@ -91,9 +91,59 @@
           <h5 class="h5Details">60-month-weight</h5>
           <input type="number" id="sixtyMonth" oninput="onChangeInput('sixtyMonth')" class="input details" placeholder="Please enter weight"></input>
         </form>
-          <button id="treatment" class="button black" onclick="submitForm()">Calculate Treatment</button>
+          
         </div>
           
+        </div>
+      </div>
+      <div id="psy-container" class="pageContent fadeInUp">
+        <h4 class="self-align">🧠Psychosocial Assessment Questionnaire</h4>
+        <div id="psy">
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">1. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">2. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">3. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">4. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">5. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">6. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">7. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">8. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">9. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">10. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <div id="question-holder" class="flex-row">
+            <h5 class="question-header">11. blalba</h5>
+            <input id="question-id" class="input-question" type="checkbox">
+          </div>
+          <button id="treatment" class="button black" onclick="submitForm()">Calculate Treatment</button>
         </div>
       </div>
     </div>
