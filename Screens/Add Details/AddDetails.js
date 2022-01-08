@@ -324,6 +324,7 @@ function birthPercentile(){
    }
   return percentile;
 }
+
 function sixMonthPercentile(){
   let w6=formObject.weightInfo.sixMonth;
 
@@ -362,6 +363,7 @@ function sixMonthPercentile(){
    return '99';
 
 }
+
 function twelveMonthPercentile(){
   let w12=formObject.weightInfo.twelveMonth;
   if(formObject.gender==='Male') {
@@ -400,6 +402,7 @@ function twelveMonthPercentile(){
    
 
 }
+
 function eighteenMonthPercentile(){
   let w18=formObject.weightInfo.eighteenMonth;
   if(formObject.gender==='Male') {
@@ -439,6 +442,7 @@ function eighteenMonthPercentile(){
    return '99';
    
 }
+
 function twentyFourMonthPercentile(){
   let w24=formObject.weightInfo.twentyFourMonth;
   if(formObject.gender==='Male') {
@@ -478,10 +482,11 @@ function twentyFourMonthPercentile(){
    return '99';
 
 }
+
 function thirtySixMonthMonthPercentile(){
   let w36=formObject.weightInfo.thirtySixMonth;
   if(formObject.gender==='Male') {
-    if(w36<11.8) return '0';
+    if(w36<11.8) return '0';//
     if (w36>=11.8 && w36<12.3) 
      return '5';
     if (w36>=12.3 && w36<13.2) 
@@ -517,6 +522,7 @@ function thirtySixMonthMonthPercentile(){
    return '99';
 
 }
+
 function fortyEightMonthMonthPercentile(){
   let w48=formObject.weightInfo.fourtyEightMonth;
   if(formObject.gender==='Male') {
@@ -555,6 +561,7 @@ function fortyEightMonthMonthPercentile(){
    }
    return '99';
 }
+
 function sixtyMonthMonthPercentile(){
   let w60=formObject.weightInfo.sixtyMonth;
   if(formObject.gender==='Male') {
@@ -592,6 +599,7 @@ function sixtyMonthMonthPercentile(){
    }
    return "99";
 }
+
 function birthToAge(birthDay) {
   var dateNow = new Date();
   let month
@@ -605,6 +613,7 @@ function birthToAge(birthDay) {
   let finalCalculationOfMonths=12*age+month;
   return finalCalculationOfMonths;
 }
+
 function currentPercentileCalc(){
   let lastMeasure=0;
   if(formObject.weightInfo.birth!==0)
