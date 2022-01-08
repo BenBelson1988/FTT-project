@@ -328,6 +328,12 @@ function createChart(patient) {
       ],
     },
     options: {
+      plugins: {
+        title: {
+          display: true,
+          text: "Chart.js Line Chart - Cubic interpolation mode",
+        },
+      },
       animation: {
         duration: 3000,
       },

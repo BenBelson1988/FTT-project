@@ -249,3 +249,96 @@ h3 {
   margin-top: 2vh;
   color: rgb(71, 71, 71);
 }
+
+#excel-fixed-div {
+  height: 90vh;
+  width: 92vw;
+  position: fixed;
+  top: 3%;
+  right: 3%;
+  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+  background-color: white;
+  z-index: 1;
+  border-radius: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#close-excel-list {
+  position: fixed;
+  right: 4%;
+  width: 3vw;
+  z-index: 100;
+}
+
+#excel-list-container {
+  height: 100vh;
+  max-height: fit-content;
+}
+
+#excel-list-header {
+  background-color: #a8d1d4;
+  width: max-content;
+  margin-top: 5vh;
+  font-size: 2vw;
+  border-radius: 15px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  position: absolute;
+  right: 30%;
+}
+
+#excel-headings {
+  position: relative;
+  width: 90vw;
+  top: 12%;
+  z-index: 10;
+  height: fit-content;
+}
+
+.excel-head {
+  font-size: 20px;
+  margin-right: 1vw;
+  width: 7vw;
+  min-height: 4vh;
+  line-height: 4vh;
+  color: black;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#excel-headings > h4:not(:last-child) {
+  border-right: 1px dashed;
+}
+
+#excel-headings > h4 {
+  border-bottom: 1px dashed;
+}
+
+#expandButton {
+  width: 8vw;
+  margin: 0;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+}
+
+#chart-holder-search {
+  z-index: 20;
+  position: fixed;
+  left: 35%;
+  top: 10%;
+  width: 40%;
+  height: fit-content;
+  background-color: #e6fdfd;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+}
+
+#close-chart {
+  position: absolute;
+  right: -4%;
+  top: -4%;
+  width: 2vw;
+  height: 2vw;
+}

@@ -1,3 +1,5 @@
+<script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +22,29 @@
   />
 </head>
 <body>
+    <div id="excel-fixed-div"  >
+      <div id="chart-holder-search" class="display-none">
+        <button id="close-chart" class="button black" onclick="closeChart()">X</button>
+        <canvas id="myChartSearch" width="5vw" height="5vh"></canvas>
+      </div>
+      <button id="close-excel-list" class="button black" onclick="closeList()">X</button>
+      <h3 id="excel-list-header">List of children uploded from Excel file</h3>
+      <div id="excel-headings" class="flex-row">
+        <h4 class="excel-head">ID</h4>
+        <h4 class="excel-head">Gender</h4>
+        <h4 class="excel-head">Birth Weight</h4>
+        <h4 class="excel-head">6 Month Weight</h4>
+        <h4 class="excel-head">12 Month Weight</h4>
+        <h4 class="excel-head">18 Month Weight</h4>
+        <h4 class="excel-head">24 Month Weight</h4>
+        <h4 class="excel-head">36 Month Weight</h4>
+        <h4 class="excel-head">48 Month Weight</h4>
+        <h4 class="excel-head">60 Month Weight</h4>
+        <h4 class="excel-head">Child Graphs</h4>
+      </div>
+        <div id="excel-list-container">
+        </div>
+    </div>
     <div class='pageContainer'>
       <img class="loader display-none" id="loader" src="../../UI//Loader/Loader.svg" />
 
@@ -56,7 +81,7 @@
                 
                 <div id="AddPatientList"> 
                     <h4 class="h4Headings">Upload list of patients from file</h4>
-                    <input type="file" class="input" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"   name="patientsList">
+                    <input id="excel-input" type="file" class="input" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"   name="patientsList">
                 </div>
               
                     <hr class="solid">
