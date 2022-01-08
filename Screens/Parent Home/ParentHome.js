@@ -100,18 +100,160 @@ function fetchChildsDetails(index, parentChlilds) {
 }
 
 function createChart(patient) {
-  //if (pateint.gender ==="Male")
-  let labelArr = ["0", "6", "12", "18", "24", "36"];
-  let fivePercentileArr = ["2.5", "6.4", "8.6", "9.8", "10.6", "12"];
-  let tenPercentileArr = ["2.8", "6.8", "9", "10.2", "11.05", "12.43"];
-  let twentyFivePercentileArr = ["3.1", "7.3", "9.6", "10.9", "11.8", "13.1"];
-  let fiftyPercentileArr = ["3.6", "7.8", "10.3", "11.7", "12.6", "14.3"];
-  let seventyFivePercentile = ["4", "8.5", "11.1", "12.6", "13.6", "15.4"];
-  let nintyPercentileArr = ["4.3", "9.2", "11.9", "13.5", "14.6", "16.6"];
-  let nintyFivePercentileArr = ["4.5", "9.6", "12.4", "14", "15.2", "17.4"];
-
+  let labelArr = ["0", "6", "12", "18", "24", "36", "48", "60"];
+  let fivePercentileArr,
+    tenPercentileArr,
+    twentyFivePercentileArr,
+    fiftyPercentileArr,
+    seventyFivePercentile,
+    nintyPercentileArr,
+    nintyFivePercentileArr;
+  debugger;
+  if (patient.gender === "Male") {
+    fivePercentileArr = [
+      "2.5",
+      "6.4",
+      "8.6",
+      "9.8",
+      "10.6",
+      "12",
+      "13.3",
+      "14.7",
+    ];
+    tenPercentileArr = [
+      "2.8",
+      "6.8",
+      "9",
+      "10.2",
+      "11.05",
+      "12.43",
+      "13.9",
+      "15.5",
+    ];
+    twentyFivePercentileArr = [
+      "3.1",
+      "7.3",
+      "9.6",
+      "10.9",
+      "11.8",
+      "13.1",
+      "15",
+      "16.7",
+    ];
+    fiftyPercentileArr = [
+      "3.6",
+      "7.8",
+      "10.3",
+      "11.7",
+      "12.6",
+      "14.3",
+      "16.3",
+      "18.3",
+    ];
+    seventyFivePercentile = [
+      "4",
+      "8.5",
+      "11.1",
+      "12.6",
+      "13.6",
+      "15.4",
+      "17.8",
+      "20.1",
+    ];
+    nintyPercentileArr = [
+      "4.3",
+      "9.2",
+      "11.9",
+      "13.5",
+      "14.6",
+      "16.6",
+      "19.3",
+      "21.9",
+    ];
+    nintyFivePercentileArr = [
+      "4.5",
+      "9.6",
+      "12.4",
+      "14",
+      "15.2",
+      "17.4",
+      "20.2",
+      "23",
+    ];
+  } else {
+    fivePercentileArr = [
+      "2.5",
+      "6",
+      "7.3",
+      "8.4",
+      "9.4",
+      "11.3",
+      "12.9",
+      "14.4",
+    ];
+    tenPercentileArr = [
+      "2.7",
+      "6.2",
+      "7.7",
+      "8.8",
+      "9.8",
+      "11.8",
+      "13.5",
+      "15.2",
+    ];
+    twentyFivePercentileArr = [
+      "2.9",
+      "6.7",
+      "8.2",
+      "9.4",
+      "10.6",
+      "12.7",
+      "14.7",
+      "16.5",
+    ];
+    fiftyPercentileArr = [
+      "3.2",
+      "7.3",
+      "8.9",
+      "10.2",
+      "11.5",
+      "13.9",
+      "16.1",
+      "18.2",
+    ];
+    seventyFivePercentile = [
+      "3.6",
+      "7.9",
+      "9.7",
+      "11.1",
+      "12.5",
+      "15.1",
+      "17.7",
+      "20.2",
+    ];
+    nintyPercentileArr = [
+      "3.9",
+      "8.5",
+      "10.5",
+      "12",
+      "13.5",
+      "16.4",
+      "19.3",
+      "22.2",
+    ];
+    nintyFivePercentileArr = [
+      "4",
+      "8.9",
+      "11",
+      "12.6",
+      "14.2",
+      "17.3",
+      "20.4",
+      "23.5",
+    ];
+  }
   let fttProgressArr = patient.fttProgress.map((label) => {
-    return label.fttValue;
+    return Object.entries(label)[0][1];
   });
   const ctx = document.getElementById("myChart").getContext("2d");
   const myChart = new Chart(ctx, {
@@ -119,6 +261,14 @@ function createChart(patient) {
     data: {
       labels: labelArr,
       datasets: [
+        {
+          label: patient.fullName,
+          data: fttProgressArr,
+          borderColor: ["rgba(185, 16, 49, 1)"],
+          borderWidth: 5,
+          cubicInterpolationMode: "monotone",
+          fill: false,
+        },
         {
           label: "5%",
           data: fivePercentileArr,
@@ -175,14 +325,6 @@ function createChart(patient) {
           cubicInterpolationMode: "monotone",
           fill: false,
         },
-        // {
-        //   label: patient.fullName,
-        //   data: nintyFivePercentileArr,
-        //   borderColor: ["rgba(185, 16, 49, 1)"],
-        //   borderWidth: 1,
-        //   cubicInterpolationMode: "monotone",
-        //   fill: false,
-        // },
       ],
     },
     options: {
@@ -198,7 +340,10 @@ function createChart(patient) {
               beginAtZero: true,
               steps: 10,
               stepValue: 5,
-              max: 20,
+              max:
+                parseInt(
+                  nintyFivePercentileArr[nintyFivePercentileArr.length - 1]
+                ) + 2,
             },
           },
         ],
