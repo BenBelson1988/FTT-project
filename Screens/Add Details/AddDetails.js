@@ -191,7 +191,7 @@ function submitForm() {
     isFTT: isFTTexist,
   };
 
-  // addPatientToDataBase(formObject);
+  addPatientToDataBase(formObject);
   fillTreatment(formObject);
 }
 
