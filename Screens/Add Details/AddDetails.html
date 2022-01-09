@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,6 +27,27 @@
   </head>
   <body>
     <div id="upper-container" class="pageContainer">
+      <div id="treatment-fixed-div" class="display-none" > 
+        <button id="close-treatment" class="button black" onclick="closeTreatment()">X</button>
+        <div id="treatment-holder" >
+            <h2>FTT treatment suggestion</h2>
+            <h6 id="suffers"></h6>
+            <div id="treat-div" class="flex-row">
+                <div class="flex-1">
+                    <div class="flex-1"><h5 id="weight-head">🍕Nutrition Treatment</h5>
+                    <div id="nuritiontDiv" class="textDiv"></div></div>
+                    
+                    <div class="flex-1"><h5 id="weight-head">🧪Medical Treatment</h5>
+                    <div id="medicineList" class="textDiv"></div></div>
+                    <div class="flex-1"><h5 id="weight-head">🧠Psychosocial Recommendation</h5>
+                    <div id="psyList" class="textDiv"></div></div>
+                 </div>
+                <div class="flex-1" id="chart-holder">
+                <canvas id="myChart" width="5vw" height="5vh"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
       <div class='header'>
         <a id=FTTellLink href="../Login/Login.html"> FTTell</a>
               <a class="menuButton" href="../Login/Login.html">Home</a>

@@ -1,29 +1,18 @@
-//Check for connection using the local storage
-let licenseNumber = window.localStorage.getItem("loggedIn");
-if (!licenseNumber) window.open("../Login/Login.html", "_self");
-let index = window.localStorage.getItem("index");
-
-document.getElementById("id").value = parseInt(
-  window.location.search.substring(window.location.search.length - 9)
-);
-if (!document.getElementById("id").value) goBack();
+let parent = window.localStorage.getItem("parent");
+if (!parent) {
+  document.getElementById("header").style.display = "none";
+  document.getElementById("logOutButton").style.display = "none";
+  document.getElementById("add-pageContainer").style.marginTop = "10vh";
+} else document.getElementById("warning").style.display = "none";
 
 //Form Object
 var formObject = {
-  fullName: "",
-  id: 0,
-  motherID: "",
-  motherName: "",
-  motherHeight: 0,
-  fatherID: "",
-  fatherName: "",
-  fatherHeight: 0,
-  birthDate: "",
   currentWeight: 0,
   gender: "",
   isFTT: "",
   FTTpercentiles: "",
   illnesses: [],
+  birthDate: "",
   psychoTreatment: [],
   nutritionTreatment: [],
   medicalTreatment: [],
@@ -39,28 +28,23 @@ var formObject = {
   },
 };
 let formError = false;
-document.getElementById("birthDate").max =
-  new Date().getFullYear() +
-  "-" +
-  parseInt(new Date().getMonth() + 1) +
-  "-" +
-  new Date().getDate();
 ///////////////illness list care
 let illness = 0;
 const illnesses = [
-  "Occult blood in stool",
-  "Reflux",
-  "Food allergy",
-  "Eating disorder",
-  "Celiac",
-  "Malabsorption",
-  "Chronic infection",
-  "Mood disorder",
+  "Vomiting immidiately after feeding",
+  "Chronic vomiting / heartburn / cough / abdominal pain",
+  "Diarrhea and abdominal bloating",
+  "Yellow - floating stool, vitamins A,D,E,K deficiency symptoms. Protein - Peripheral edema",
+  "Fat in stool, chronic respiratory infections, chronic cough",
+  "Black stool, mucus in stool, abdo,inal pain,perianal desease",
+  "Abdominal pain between meals and early in the morning",
+  "Long last / recurrent behavioral problems",
+  "Regurgitation of food, Bad breath or tooth decay, refuse to eat, picky eating, abnormal eating behaviour",
 ];
 let tempIlnesess = illnesses;
 
 function addIlness() {
-  if (illness === 8) return;
+  if (illness === 9) return;
   if (illness !== 0) {
     let comboBox = document.getElementById("illness" + illness);
     if (comboBox.selectedOptions[0].text === "Please select illness") {
@@ -145,11 +129,7 @@ function onChangeInput(inputType) {
 function submitForm() {
   formError = false;
   //Basic Info handle
-  Array.from(document.getElementById("basic-info-form").elements).forEach(
-    (element) => {
-      inputValidation(element.id);
-    }
-  );
+
   //Illnesses handle
   Array.from(document.getElementsByClassName("input-illness")).forEach(
     (element) => {
@@ -167,21 +147,29 @@ function submitForm() {
     }
   );
 
+  inputValidation("currentWeight");
+  inputValidation("gender");
+  inputValidation("birthDate");
+
+  console.log(formObject, !formError ? "form is valid" : "form is not valid");
   if (formError) return;
+  debugger;
   let childPercentile = claculateFTTPercentile(); /////we have all the percentiles of a child
   let percentilesArr = percentiletoArray(childPercentile);
   let isFTTexist = calculateIfFTTexist(percentilesArr); //if isFTTexist is true it means that there is ftt
   const currentChildPercentile = childPercentile.currentPercentile; //the current child percentile
   let psychoAssessmentArr = fecthQuestion();
   let psychoSocialRecommendation = getPsychoRecommendation(psychoAssessmentArr); //here we finished psycosocial recommendations
-  let medicalRecommendation = getMedicalRecommendation(formObject.illnesses); //here we finished medical recommendations
+  let medicalRecommendation = getMedicalRecommendationForUnsignedParent(
+    formObject.illnesses
+  ); //here we finished medical recommendations
   let nutritionRecommendations = [];
   if (isFTTexist)
     nutritionRecommendations = getNutritionRecommendations(percentilesArr[0]);
-  else
-    nutritionRecommendations.push[
+  else if (!nutritionRecommendations)
+    nutritionRecommendations.push(
       "No FTT diagnosed, no need for special diet."
-    ]; //here we have nutrition recommendations
+    ); //here we have nutrition recommendations
   formObject = {
     ...formObject,
     FTTpercentiles: childPercentile,
@@ -191,8 +179,8 @@ function submitForm() {
     isFTT: isFTTexist,
   };
 
-  // addPatientToDataBase(formObject);
   fillTreatment(formObject);
+  //open popup with treatment
 }
 
 //dynamic check for each input.
@@ -223,28 +211,13 @@ function inputValidation(inputValue, type) {
 }
 
 function goBack() {
-  history.back() ||
-    window.open(
-      "../Patients Search Details/PatientSearchDetails.html",
-      "_self"
-    );
+  history.back();
 }
 
 //logout user from DB
 function logOut() {
-  let data = false;
-  fetch(
-    `https://fttell-default-rtdb.firebaseio.com/doctors/${index}/loggedIn.json`,
-    {
-      method: "PUT",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    }
-  ).then(() => {
-    window.localStorage.clear(), window.open("../Login/Login.html", "_self");
-  });
+  window.localStorage.clear();
+  window.open("../Login/Login.html", "_self");
 }
 
 function percentiletoArray(childPercentile) {
@@ -551,7 +524,6 @@ function currentPercentileCalc() {
 }
 
 function calculateIfFTTexist(percentilesArray) {
-  debugger;
   let LastIndexChecked = 0;
   let firstIndex;
   let birthPercentile = percentilesArray[0];
@@ -614,46 +586,6 @@ function getPsychoRecommendation(psychoAssessmentArr) {
     }
     if (question === true) recomendationArray.push(allRecommendation[index]);
   });
-  return recomendationArray;
-}
-
-function getMedicalRecommendation(patientIllnesses) {
-  let recomendationArray = [];
-
-  patientIllnesses.forEach((ilness, index) => {
-    if (ilness === "Reflux")
-      recomendationArray.push(
-        ilness +
-          ": Nutrition change to 'Anti reflux' formula, anti acids, smaller more frequent feedings, feed while child is elevated."
-      );
-    if (ilness === "Occult blood in stool")
-      recomendationArray.push(
-        ilness +
-          ": Nutrition change to hypoallergenic formula, check for inflammatory bowel disease."
-      );
-    if (ilness === "Food allergy")
-      recomendationArray.push(
-        ilness +
-          ": Allergy skin test, Avoid the allergan detected, if breast fade-mom should avoid the alergan."
-      );
-    if (ilness === "Eating disorder")
-      recomendationArray.push(
-        ilness +
-          ": Eating disorder clinic, psychiatric assessment, folic acid, vitamins, protein, zinc."
-      );
-    if (ilness === "Celiac")
-      recomendationArray.push(ilness + ": Avoid gluten containing foods.");
-    if (ilness === "Malabsorption")
-      recomendationArray.push(
-        ilness +
-          ": Nutritional supplement(such as 'pedisure'), reduce sweet drinks."
-      );
-    if (ilness === "Chronic infection")
-      recomendationArray.push(ilness + ": Antibiotics+anti-acids.");
-    if (ilness === "Mood disorder")
-      recomendationArray.push(ilness + ": psychiatric assessment.");
-  });
-  if (!recomendationArray) recomendationArray.push("No medical recomendation");
   return recomendationArray;
 }
 
@@ -808,13 +740,13 @@ function getNutritionRecommendations(birthPercentile) {
   birthPercentile = parseInt(birthPercentile);
   if ((formObject.gender = "Male")) {
     if (birthPercentile === 5 || birthPercentile === 0) {
-      expectedWeight = boysFivePercentileArr[closestMonthIndex];
+      expectedWeight = boysFiftyPercentileArr[closestMonthIndex];
     }
     if (birthPercentile === 10) {
-      expectedWeight = boysTenPercentileArr[closestMonthIndex];
+      expectedWeight = boysFiftyPercentileArr[closestMonthIndex];
     }
     if (birthPercentile === 25) {
-      expectedWeight = boysTwentyFivePercentileArr[closestMonthIndex];
+      expectedWeight = boysFiftyPercentileArr[closestMonthIndex];
     }
     if (birthPercentile === 50) {
       expectedWeight = boysFiftyPercentileArr[closestMonthIndex];
@@ -830,13 +762,13 @@ function getNutritionRecommendations(birthPercentile) {
     }
   } else {
     if (birthPercentile === 5 || birthPercentile === 0) {
-      expectedWeight = girlsFivePercentileArr[closestMonthIndex];
+      expectedWeight = girlsFiftyPercentileArr[closestMonthIndex];
     }
     if (birthPercentile === 10) {
-      expectedWeight = girlsTenPercentileArr[closestMonthIndex];
+      expectedWeight = girlsFiftyPercentileArr[closestMonthIndex];
     }
     if (birthPercentile === 25) {
-      expectedWeight = girlsTwentyFivePercentileArr[closestMonthIndex];
+      expectedWeight = girlsFiftyPercentileArr[closestMonthIndex];
     }
     if (birthPercentile === 50) {
       expectedWeight = girlsFiftyPercentileArr[closestMonthIndex];
@@ -891,9 +823,7 @@ function getNutritionRecommendations(birthPercentile) {
     recomendationArray.push("Iron: 15 miligram");
     recomendationArray.push("Total amount Zinc: 9 miligram");
     recomendationArray.push("protein: " + expectedWeight * 1.5);
-    recomendationArray.push(
-      "Calories intake: " + (120 * expectedWeight) / formObject.currentWeight
-    );
+    recomendationArray.push("Calories intake: " + 120 * expectedWeight);
   }
   return recomendationArray;
 }
@@ -917,30 +847,26 @@ function getMedicalRecommendationForUnsignedParent(patientIllnesses) {
         ilness +
           ": Ask doctor for abdominal US-in order to deprive pyloric stenosys."
       );
-    if (
-      ilness ===
-      "The child is vomiting chronicly, without preceding nausea/suffers from heartburn, cough, abdominal pain."
-    )
+    if (ilness === "Chronic vomiting / heartburn / cough / abdominal pain")
       recomendationArray.push(
         ilness +
           ": Ask the doctor for esophageal PH monitoring-in order to deprive GERD."
       );
-    if (ilness === "The child suffers from diarrhea and abdominal bloating.")
+    if (ilness === "Diarrhea and abdominal bloating")
       recomendationArray.push(
         ilness +
           ": Abstain of gluten products, and ask the doctor for blood antibody testing to deprive celiac."
       );
     if (
       ilness ===
-      "Fat- steatorrhea (yellow, floating stool), vitamins A,D,E,K deficiency symptoms.Protein- Peripheral edema"
+      "Yellow - floating stool, vitamins A,D,E,K deficiency symptoms. Protein - Peripheral edema"
     )
       recomendationArray.push(
         ilness +
           ": Ask the doctor for stool test in order to deprive malabsorption."
       );
     if (
-      ilness ===
-      "Fat in stool (steatorrhea), chronic respiratory infections, chronic cough"
+      ilness === "Fat in stool, chronic respiratory infections, chronic cough"
     )
       recomendationArray.push(
         ilness +
@@ -957,59 +883,15 @@ function getMedicalRecommendationForUnsignedParent(patientIllnesses) {
       recomendationArray.push(
         ilness + ": Ask the doctor for H. pylori stool antigen test."
       );
-    if (
-      ilness ===
-      "The child is having a lot of bad mood moments or bad mood lasts for a longer period of time. "
-    )
+    if (ilness === "Long last / recurrent behavioral problems")
       recomendationArray.push(ilness + ": Ask the doctor about mood disorder.");
     if (
       ilness ===
-      "Repeated regurgitation of food, Bad breath or tooth decay, refuse to eat,picky eating, abnormal eating behaviour. "
+      "Regurgitation of food, Bad breath or tooth decay, refuse to eat, picky eating, abnormal eating behaviour"
     )
       recomendationArray.push(ilness + ": Ask the doctor about mood disorder.");
   });
   return recomendationArray;
-}
-
-async function fecthPatients() {
-  const response = await fetch(
-    `https://fttell-default-rtdb.firebaseio.com/patients.json`
-  );
-  const patients = await response.json();
-  return patients;
-}
-
-async function fecthDoctorPatients() {
-  const pateintsResponse = await fetch(
-    `https://fttell-default-rtdb.firebaseio.com/doctors/${index}/patientsList.json`
-  );
-  return await pateintsResponse.json();
-}
-
-async function addPatientToDataBase(childObject) {
-  let [patients, doctorPatients] = await Promise.allSettled([
-    fecthPatients(),
-    fecthDoctorPatients(),
-  ]);
-  doctorPatients.value.push(childObject.id);
-  patients.value.push(childObject);
-  fetch(`https://fttell-default-rtdb.firebaseio.com/patients.json`, {
-    method: "PUT",
-    body: JSON.stringify(patients.value),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  });
-  fetch(
-    `https://fttell-default-rtdb.firebaseio.com/doctors/${index}/patientsList.json`,
-    {
-      method: "PUT",
-      body: JSON.stringify(doctorPatients.value),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    }
-  );
 }
 
 function closeTreatment() {
@@ -1037,8 +919,8 @@ function fillTreatment(formObject) {
   });
 
   document.getElementById("suffers").innerHTML = formObject.isFTT
-    ? formObject.fullName + " seem to be suffer from FTT."
-    : formObject.fullName + " don't seem to suffer from FTT.";
+    ? "You're child seem to be suffer from FTT."
+    : "You're child don't seem to suffer from FTT.";
   createChart(formObject);
 }
 
@@ -1206,6 +1088,7 @@ function createChart(patient) {
   fttProgressArr.forEach((weight, index) => {
     if (weight === 0) fttProgressArr[index] = "-";
   });
+  debugger;
   const ctx = document.getElementById("myChart").getContext("2d");
   const myChart = new Chart(ctx, {
     type: "line",
@@ -1213,7 +1096,7 @@ function createChart(patient) {
       labels: labelArr,
       datasets: [
         {
-          label: patient.fullName,
+          label: "child percentile",
           data: fttProgressArr,
           borderColor: ["rgba(185, 16, 49, 1)"],
           borderWidth: 5,

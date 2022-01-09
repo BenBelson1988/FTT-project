@@ -1,0 +1,164 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FTT Free Tool</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../../UI/main.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../Patients Search Details/patientsSearchDetails.css"
+    />
+   
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="FTTFreeTool.css"
+    />
+  </head>
+  <body>
+    <div id="upper-container" class="pageContainer">
+         <div id="treatment-fixed-div" class="display-none" > 
+            <button id="close-treatment" class="button black" onclick="closeTreatment()">X</button>
+            <div id="treatment-holder" >
+                <h2>FTT treatment suggestion</h2>
+                <h6 id="suffers"></h6>
+                <div id="treat-div" class="flex-row">
+                    <div class="flex-1">
+                        <div class="flex-1"><h5 id="weight-head">🍕Nutrition Treatment</h5>
+                        <div id="nuritiontDiv" class="textDiv"></div></div>
+                        
+                        <div class="flex-1"><h5 id="weight-head">🧪Medical Treatment</h5>
+                        <div id="medicineList" class="textDiv"></div></div>
+                        <div class="flex-1"><h5 id="weight-head">🧠Psychosocial Recommendation</h5>
+                        <div id="psyList" class="textDiv"></div></div>
+                     </div>
+                    <div class="flex-1" id="chart-holder">
+                    <canvas id="myChart" width="5vw" height="5vh"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="header" class='header'>
+          <a id=FTTellLink href="../Login/Login.html"> FTTell</a>
+                <a class="menuButton" href="../Login/Login.html">Home</a>
+                <a class="menuButton" href="../About/About.html">About</a>
+          </div>
+              <h2 id="h2head" class="self-align">Please fill in child's details</h2>
+              <button id="goBackButton"  class="button peach" onclick="goBack()"   >Go back ⮌</button>
+              <button id="logOutButton"  class="button peach" onclick="logOut()"   >Log out ⮌</button>
+              <h5 id="warning">*We recommend to consult a doctor before use any treatment.</h5>
+        <div id="add-pageContainer" class="pageContent fadeInUp">
+            
+          <div class="divContent" id="basic-info">
+           
+            <h5 class="h5Details">Gender</h5>
+            <select id="gender" class="input-gender">
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+            
+            <h5 class="h5Details">Birth Date</h5>
+            <input type="date" id="birthDate" oninput="onChangeInput('birthDate')" class="input details" ></input>
+            <h5 class="h5Details">Child's current weight</h5>
+            <input type="number" id="currentWeight" oninput="onChangeInput('currentWeight')" step="0.01" class="input details" placeholder="Child's current weight"></input>
+          </form>
+          </div>
+          <div class="divContent" id="Illness">
+              <h4 class="self-align">Medical diagnose history</h4>
+              <div class="buttonsholder">
+              <button id="add-illness" class="button white self-align" onclick=addIlness()>Add diagnosis +</button>
+              <button id="remove-illness" class="button white self-align" onclick=removeIlness()>Remove diagnosis -</button>
+              </div>
+              <div id="illness-list"></div>
+          </div>
+          <div class="divContent" id="pregnant-info">
+            <h4 class="self-align">Weight Info</h4>
+            <h5 class="h5Details">Birth weight</h5>
+            <form id="weight-info">
+            <input type="number" 
+            id="birth" oninput="onChangeInput('birth')" class="input details" placeholder="Please enter weight"></input>
+            <h5 class="h5Details">6-month-weight</h5>
+            <input type="number" id="sixMonth" oninput="onChangeInput('sixMonth')" class="input details" placeholder="Please enter weight"></input>
+            <h5 class="h5Details">12-month-weight</h5>
+            <input type="number" id="twelveMonth" oninput="onChangeInput('twelveMonth')" class="input details" placeholder="Please enter weight"></input>
+            <h5 class="h5Details">18-month-weight</h5>
+            <input type="number" class="input details" id="eighteenMonth" oninput="onChangeInput('eighteenMonth')" placeholder="Please enter weight"></input>
+            <h5 class="h5Details">24-month-weight</h5>
+            <input type="number" id="twentyFourMonth" oninput="onChangeInput('twentyFourMonth')" class="input details" placeholder="Please enter weight"></input>
+            <h5 class="h5Details">36-month-weight</h5>
+            <input type="number" class="input details" id="thirtySixMonth" oninput="onChangeInput('thirtySixMonth')" placeholder="Please enter weight"></input>
+            <h5 class="h5Details">48-month-weight</h5>
+            <input type="number" class="input details" id="fourtyEightMonth" oninput="onChangeInput('fourtyEightMonth')" placeholder="Please enter weight"></input>
+            <h5 class="h5Details">60-month-weight</h5>
+            <input type="number" id="sixtyMonth" oninput="onChangeInput('sixtyMonth')" class="input details" placeholder="Please enter weight"></input>
+          </form>
+            
+          </div>
+            
+          </div>
+        </div>
+        <div id="psy-container" class="pageContent fadeInUp">
+          <h4 class="self-align">🧠Psychosocial Assessment Questionnaire</h4>
+          <div id="psy">
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">1. Easting at meal time it's an obligation. </h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">2. Baby feeding time and quantities are well known to us.</h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">3. Our child has at least one brother.</h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">4. Exposure of a child to different texture of food is important. </h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">5. When a child eats, distractions such as TV are bad. </h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">6. The child is irritated by walking bare foot on the grass or close stitch.</h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">7. The child takes drugs.</h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">8. At meal time, the enviroment is quite and peacefull.</h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">9. Variaty of food is served in a meal at our home. </h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">10. A child have to finish everything on plate.</h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <div id="question-holder" class="flex-row">
+              <h5 class="question-header">11. If a child finish everything on plate, he deserve a reward.</h5>
+              <input id="question-id" class="input-question" type="checkbox">
+            </div>
+            <button id="treatment" class="button black" onclick="submitForm()">Calculate Treatment</button>
+          </div>
+        </div>
+      </div>
+    <script src="FTTFreeTool.js"></script>
+  </body>
+</html>

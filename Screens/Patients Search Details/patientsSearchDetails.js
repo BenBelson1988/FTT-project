@@ -66,16 +66,18 @@ function showDetails(patient) {
   document.getElementById("patientAge").innerHTML = birthToAge(
     patient.birthDate
   );
-  document.getElementById("medicalDiagnosis").innerHTML =
-    patient.medicalDiagnose;
-  let medicineList = document.getElementById("medicinesTaken");
-  medicineList.innerHTML = "";
-  for (const [key, value] of Object.entries(patient.medicineTaken)) {
-    let medicineItem = document.createElement("div");
-    medicineItem.classList.add("medicine-item");
-    medicineItem.innerHTML += `${key} - ${value}` + "\n";
-    medicineList.appendChild(medicineItem);
-  }
+
+  patient.nutriTreatment.forEach((nutri) => {
+    document.getElementById("nuritiontDiv").innerHTML += nutri + "<br />";
+  });
+
+  patient.medicalTreatment.forEach((meds) => {
+    document.getElementById("medicineList").innerHTML += meds + "<br />";
+  });
+
+  patient.psychoTreatment.forEach((psy) => {
+    document.getElementById("psyList").innerHTML += psy + "<br />";
+  });
 }
 
 function openFullList() {
@@ -132,7 +134,7 @@ function logOut() {
 function birthToAge(birthDay) {
   var dateNow = new Date();
   var age = dateNow.getFullYear() - birthDay.substring(0, 4);
-  if (birthDay.substring(5, 7) - dateNow.getMonth() + 1 > 0) age--;
+  if (parseInt(birthDay.substring(5, 7)) - 1 - dateNow.getMonth() > 0) age--;
   return age;
 }
 

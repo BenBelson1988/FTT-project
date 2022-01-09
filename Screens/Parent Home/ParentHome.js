@@ -4,6 +4,7 @@ if (!parentID) window.open("../Login/Login.html", "_self");
 document.getElementById("childDetails").style.display = "none";
 fecthPatients().then(function (response) {
   const patients = response;
+  console.log(patients);
   let parent;
   let parentChlilds = [];
   fecthParents().then(function (response1) {
@@ -15,7 +16,8 @@ fecthPatients().then(function (response) {
       }
     }
     patients.forEach((patient) => {
-      if (patient.fatherID || patient.motherID) parentChlilds.push(patient);
+      if (patient.fatherID === parent.ID || patient.motherID === parent.ID)
+        parentChlilds.push(patient);
     });
     updatePageData(parent, parentChlilds);
   });
@@ -79,23 +81,18 @@ function fetchChildsDetails(index, parentChlilds) {
       document.getElementById(key).innerHTML = value;
     }
   }
-  for (const [key, value] of Object.entries(
-    parentChlilds[index].medicineTaken
-  )) {
-    let div = document.createElement("div");
-    let h4Head = document.createElement("h4");
-    let inputDiv = document.createElement("div");
-    div.classList.add("flex-row-parent");
-    h4Head.setAttribute("id", "h4Head");
-    h4Head.innerHTML = key;
-    inputDiv.innerHTML = value;
-    inputDiv.classList.add("input-div");
-    div.appendChild(h4Head);
-    div.appendChild(inputDiv);
-    document.getElementById("medicineList").appendChild(div);
-  }
-  document.getElementById("treatmentDiv").innerHTML =
-    parentChlilds[index].treatment;
+  parentChlilds[index].nutriTreatment.forEach((nutri) => {
+    document.getElementById("nuritiontDiv").innerHTML += nutri + "<br />";
+  });
+
+  parentChlilds[index].medicalTreatment.forEach((meds) => {
+    document.getElementById("medicineList").innerHTML += meds + "<br />";
+  });
+
+  parentChlilds[index].psychoTreatment.forEach((psy) => {
+    document.getElementById("psyList").innerHTML += psy + "<br />";
+  });
+
   createChart(parentChlilds[index]);
 }
 
@@ -108,7 +105,6 @@ function createChart(patient) {
     seventyFivePercentile,
     nintyPercentileArr,
     nintyFivePercentileArr;
-  debugger;
   if (patient.gender === "Male") {
     fivePercentileArr = [
       "2.5",
@@ -252,9 +248,19 @@ function createChart(patient) {
       "23.5",
     ];
   }
-  let fttProgressArr = patient.fttProgress.map((label) => {
-    return Object.entries(label)[0][1];
+  let fttProgressArr = [];
+  fttProgressArr.push(patient.weightsInfo.birth);
+  fttProgressArr.push(patient.weightsInfo.sixMonth);
+  fttProgressArr.push(patient.weightsInfo.twelveMonth);
+  fttProgressArr.push(patient.weightsInfo.eighteenMonth);
+  fttProgressArr.push(patient.weightsInfo.twentyFourMonth);
+  fttProgressArr.push(patient.weightsInfo.thirtySixMonth);
+  fttProgressArr.push(patient.weightsInfo.fourtyEightMonth);
+  fttProgressArr.push(patient.weightsInfo.sixtyMonth);
+  fttProgressArr.forEach((weight, index) => {
+    if (weight === 0) fttProgressArr[index] = "-";
   });
+
   const ctx = document.getElementById("myChart").getContext("2d");
   const myChart = new Chart(ctx, {
     type: "line",
@@ -356,4 +362,8 @@ function createChart(patient) {
       },
     },
   });
+}
+
+function openFreeTool() {
+  window.open("../FTT Free Tool/FTTFreeTool.html", "_self");
 }

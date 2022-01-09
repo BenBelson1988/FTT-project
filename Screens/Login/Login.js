@@ -158,3 +158,8 @@ async function fecthParents() {
   const parents = await response.json();
   return parents;
 }
+
+function continueToFreeTool(e) {
+  e.preventDefault()
+  window.open("../FTT Free Tool/FTTFreeTool.html", "_self");
+}

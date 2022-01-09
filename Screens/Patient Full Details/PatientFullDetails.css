@@ -40,7 +40,7 @@ body {
 #treatmentContent {
   margin-top: 2vh;
   width: 30vw;
-  height: 24vw;
+  height: fit-content;
 }
 
 .flex-column {
@@ -138,10 +138,23 @@ h4 {
   background-color: rgb(255, 255, 255);
 }
 
-/* #PsychotherpyRecommendation {
+#treat-suggest {
+  align-items: center;
+}
+
+.textDiv {
+  color: rgba(0, 0, 0, 0.671);
   font-size: 15px;
-  font-weight: bold;
-  background-color: whitesmoke;
+  line-height: 25px;
+  width: 90%;
+  min-height: 70px;
+  max-height: 70px;
   border-radius: 15px;
-  padding-left: 1vw;
-} */
+  background-color: white;
+  border: none;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow: auto;
+  overflow-wrap: break-word;
+}

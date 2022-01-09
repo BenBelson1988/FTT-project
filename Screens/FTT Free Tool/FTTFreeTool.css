@@ -11,10 +11,6 @@
   border-left: 1px dashed;
 }
 
-#Illness {
-  border-left: 1px dashed;
-}
-
 .details {
   height: 2.5vh;
   width: 100%;
@@ -34,6 +30,10 @@ h4 {
   bottom: 10px;
   right: 10px;
   z-index: 1;
+}
+
+#Illness {
+  border-left: 1px dashed;
 }
 
 #add-illness,
@@ -108,7 +108,7 @@ body {
   margin-top: 20px;
   width: 98%;
   height: fit-content;
-  padding-bottom: 10vh;
+  padding-bottom: 2vh;
   border-radius: 15px;
   margin-left: 1vw;
   margin-right: 1vw;
@@ -117,6 +117,8 @@ body {
 #psy-container {
   margin-bottom: 5vh;
   flex-direction: column;
+  height: fit-content;
+  padding-bottom: 5vh;
 }
 
 #question-holder {
@@ -141,11 +143,16 @@ body {
 }
 
 #upper-container {
-  height: 85vh;
+  height: 80vh;
 }
 
 #add-pageContainer {
   height: fit-content;
+  padding-top: 2vh;
+}
+
+.self-align {
+  margin-top: 0;
 }
 
 #treatment-fixed-div {
@@ -207,4 +214,12 @@ body {
   right: 15%;
   font-size: 20px;
   color: rgb(141, 17, 17);
+}
+
+#warning {
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  color: rgb(173, 0, 0);
 }

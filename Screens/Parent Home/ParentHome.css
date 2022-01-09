@@ -18,7 +18,7 @@
   margin-left: 2vw;
   margin-bottom: 2vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
@@ -115,7 +115,7 @@
 .flex-row-parent {
   display: flex;
   flex-direction: row;
-  margin-top: 1vh;
+  margin-top: 5px;
 }
 
 .textDiv {
@@ -134,4 +134,3 @@
   overflow: auto;
   overflow-wrap: break-word;
 }
-
