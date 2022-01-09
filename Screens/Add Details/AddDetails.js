@@ -837,7 +837,7 @@ function getNutritionRecommendations(birthPercentile){
     recomendationArray.push("Iron: 10 miligram");
     recomendationArray.push("Zinc: 9 miligram");
     recomendationArray.push("protein: "+ expectedWeight * 1.5);
-    recomendationArray.push("Total calories intake per day recommendation: "+ ((120 *expectedWeight)/formObject.currentWeight));
+    recomendationArray.push("Calories intake: "+ ((120 *expectedWeight)/formObject.currentWeight));
   }
   if(currentAge>2 && currentAge<=3){
     recomendationArray.push("Calcium: 700 miligram");
@@ -850,7 +850,7 @@ function getNutritionRecommendations(birthPercentile){
     recomendationArray.push("Iron: 10 miligram");
     recomendationArray.push("Zinc: 9 miligram");
     recomendationArray.push("protein: "+ expectedWeight * 1.5);
-    recomendationArray.push("Total calories intake per day recommendation: "+ ((120 *expectedWeight)/formObject.currentWeight));
+    recomendationArray.push("Calories intake: "+ ((120 *expectedWeight)/formObject.currentWeight));
   }
   if(currentAge>3){
     recomendationArray.push("Calcium: 1000 miligram");
@@ -861,9 +861,9 @@ function getNutritionRecommendations(birthPercentile){
     recomendationArray.push("A vitamin: 900 microgram");
     recomendationArray.push("C vitamin: 25 miligram");
     recomendationArray.push("Iron: 15 miligram");
-    recomendationArray.push("Zinc: 9 miligram");
+    recomendationArray.push("Total amount Zinc: 9 miligram");
     recomendationArray.push("protein: "+ expectedWeight * 1.5);
-    recomendationArray.push("Total calories intake per day recommendation: "+ ((120 *expectedWeight)/formObject.currentWeight));
+    recomendationArray.push("Calories intake: "+ ((120 *expectedWeight)/formObject.currentWeight));
   }
   return recomendationArray;
 }
@@ -878,3 +878,30 @@ function getLastPercentile(ageMonths){
   return 7;
 }
 
+function getMedicalRecommendationForUnsignedParent(patientIllnesses){
+  let recomendationArray=[];
+
+  patientIllnesses.forEach((ilness,index)=>{
+
+    if(ilness==="Vomiting immidiately after feeding")
+      recomendationArray.push(ilness+": Ask doctor for abdominal US-in order to deprive pyloric stenosys.");
+    if(ilness==="The child is vomiting chronicly, without preceding nausea/suffers from heartburn, cough, abdominal pain.")
+      recomendationArray.push(ilness+": Ask the doctor for esophageal PH monitoring-in order to deprive GERD.");
+    if(ilness==="The child suffers from diarrhea and abdominal bloating.")
+      recomendationArray.push(ilness+": Abstain of gluten products, and ask the doctor for blood antibody testing to deprive celiac.");
+    if(ilness==="Fat- steatorrhea (yellow, floating stool), vitamins A,D,E,K deficiency symptoms.Protein- Peripheral edema")
+      recomendationArray.push(ilness+": Ask the doctor for stool test in order to deprive malabsorption.");
+    if(ilness==="Fat in stool (steatorrhea), chronic respiratory infections, chronic cough")
+      recomendationArray.push(ilness+": Ask the doctor for sweat chloride test to deprive cystic fibrosis.");
+    if(ilness==="Black stool, mucus in stool, abdo,inal pain,perianal desease")
+      recomendationArray.push(ilness+": stool tests- in order to deprive inflammatory bowel desease.");
+    if(ilness==="Abdominal pain between meals and early in the morning")
+      recomendationArray.push(ilness+": Ask the doctor for H. pylori stool antigen test.");
+    if(ilness==="The child is having a lot of bad mood moments or bad mood lasts for a longer period of time. ")
+      recomendationArray.push(ilness+": Ask the doctor about mood disorder.");
+      if(ilness==="Repeated regurgitation of food, Bad breath or tooth decay, refuse to eat,picky eating, abnormal eating behaviour. ")
+      recomendationArray.push(ilness+": Ask the doctor about mood disorder.");
+})
+return recomendationArray;
+
+}
