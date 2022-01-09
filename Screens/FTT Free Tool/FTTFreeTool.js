@@ -899,6 +899,7 @@ function closeTreatment() {
   document.getElementById("nuritiontDiv").innerHTML = "";
   document.getElementById("medicineList").innerHTML = "";
   document.getElementById("psyList").innerHTML = "";
+  document.getElementById("suffers").innerHTML = "";
 }
 
 function fillTreatment(formObject) {
@@ -921,6 +922,10 @@ function fillTreatment(formObject) {
   document.getElementById("suffers").innerHTML = formObject.isFTT
     ? "You're child seem to be suffer from FTT."
     : "You're child don't seem to suffer from FTT.";
+  if (parseInt(formObject.FTTpercentiles.currentPercentile) <= 25)
+    document.getElementById("suffers").innerHTML +=
+      "<br />" +
+      "The patient is in 25 percetile or less. Please consider hospitalization.";
   createChart(formObject);
 }
 
